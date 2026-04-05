@@ -27,7 +27,7 @@ export const theme = createTheme({
     },
     h4: {
       fontFamily: fontCourier,
-      fontSize: 48,
+      fontSize: 36,
       fontWeight: 400,
       lineHeight: 1.2,
     },

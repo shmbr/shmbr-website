@@ -1,6 +1,7 @@
 import { assetUrls } from "./assetUrls";
 import AppLayout from "./components/AppLayout";
 import { HeroHeading } from "./components/HeroHeading";
+import Photos from "./components/Photos";
 import { SiteHeader, type ISiteHeaderLink } from "./components/SiteHeader";
 
 const headerLinks: ISiteHeaderLink[] = [
@@ -22,6 +23,7 @@ function App() {
     <AppLayout>
       <SiteHeader links={headerLinks} />
       <HeroHeading prefix="by" title="Yura Shambora" />
+      <Photos />
     </AppLayout>
   );
 }
