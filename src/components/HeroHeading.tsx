@@ -17,7 +17,12 @@ export function HeroHeading(props: IHeroHeadingProps) {
 
   return (
     <>
-      <Box display="flex" alignItems="baseline" gap={3} sx={{ mt: 18 }}>
+      <Box
+        display="flex"
+        alignItems="baseline"
+        gap={3}
+        sx={{ mt: { xs: 8, md: 10 } }}
+      >
         <Typography variant="h2">{prefix}</Typography>
         <Typography variant="h1">{title}</Typography>
       </Box>

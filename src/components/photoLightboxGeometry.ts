@@ -39,3 +39,16 @@ export function invertTransform(
   const sy = first.height / last.height;
   return `translate(${dx}px, ${dy}px) scale(${sx}, ${sy})`;
 }
+
+export function getLightboxThumbRect(
+  thumbIdPrefix: string,
+  index: number,
+): IViewportRect | null {
+  const el = document.getElementById(
+    `lightbox-thumb-${thumbIdPrefix}-${index}`,
+  );
+  if (!el) {
+    return null;
+  }
+  return readViewportRect(el.getBoundingClientRect());
+}

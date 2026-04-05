@@ -1,4 +1,4 @@
-import { useId, useState } from "react";
+import { useCallback, useId, useMemo, useState } from "react";
 import { Box } from "@mui/material";
 import type {
   KeyboardEvent as ReactKeyboardEvent,
@@ -22,6 +22,10 @@ export function PhotoPlaceBlock(props: IPhotoPlaceBlockProps) {
   const { place } = props;
   const { name, imageUrls } = place;
   const photosRegionId = useId();
+  const thumbIdPrefix = useMemo(
+    () => photosRegionId.replace(/:/g, ""),
+    [photosRegionId],
+  );
   const [photosCollapsed, setPhotosCollapsed] = useState(true);
   const [lightboxRequest, setLightboxRequest] =
     useState<IPhotoLightboxRequest | null>(null);
@@ -37,12 +41,18 @@ export function PhotoPlaceBlock(props: IPhotoPlaceBlockProps) {
     }
   };
 
-  const handleThumbClick = (event: ReactMouseEvent<HTMLImageElement>) => {
+  const handleThumbClick = (
+    event: ReactMouseEvent<HTMLImageElement>,
+    thumbIndex: number,
+  ) => {
     const target = event.currentTarget;
     setLightboxRequest({
-      alt: `${name} — enlarged`,
-      first: readViewportRect(target.getBoundingClientRect()),
-      src: target.currentSrc || target.src,
+      imageUrls,
+      index: thumbIndex,
+      openFirst: readViewportRect(target.getBoundingClientRect()),
+      placeName: name,
+      sessionKey: Date.now(),
+      thumbIdPrefix,
     });
   };
 
@@ -50,9 +60,13 @@ export function PhotoPlaceBlock(props: IPhotoPlaceBlockProps) {
     setLightboxRequest(null);
   };
 
+  const handleLightboxNavigateIndex = useCallback((nextIndex: number) => {
+    setLightboxRequest((prev) => (prev ? { ...prev, index: nextIndex } : prev));
+  }, []);
+
   return (
     <Box>
-      <Box sx={{ ml: 3.75, mt: 3.5 }}>
+      <Box sx={{ ml: { xs: 3, md: 3.75 }, mt: { xs: 2, md: 3.5 } }}>
         <PhotoPlaceSectionHeader
           name={name}
           photosCollapsed={photosCollapsed}
@@ -65,11 +79,13 @@ export function PhotoPlaceBlock(props: IPhotoPlaceBlockProps) {
           name={name}
           photosCollapsed={photosCollapsed}
           photosRegionId={photosRegionId}
+          thumbIdPrefix={thumbIdPrefix}
           onThumbClick={handleThumbClick}
         />
       </Box>
       <PhotoLightbox
         onExited={handleLightboxExited}
+        onNavigateIndex={handleLightboxNavigateIndex}
         request={lightboxRequest}
       />
     </Box>

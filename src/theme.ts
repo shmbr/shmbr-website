@@ -19,11 +19,17 @@ export const theme = createTheme({
       fontFamily: fontCourier,
       fontSize: 18,
       lineHeight: 1.5,
+      "@media (max-width:600px)": {
+        fontSize: 16,
+      },
     },
     subtitle1: {
       fontFamily: fontCourier,
       fontSize: 28,
       lineHeight: 1.35,
+      "@media (max-width:600px)": {
+        fontSize: 22,
+      },
     },
     h4: {
       fontFamily: fontCourier,
@@ -36,12 +42,18 @@ export const theme = createTheme({
       fontSize: 120,
       fontWeight: 700,
       lineHeight: 1.05,
+      "@media (max-width:600px)": {
+        fontSize: 90,
+      },
     },
     h2: {
       fontFamily: fontAmatic,
       fontSize: 80,
       fontWeight: 700,
       lineHeight: 1.1,
+      "@media (max-width:600px)": {
+        fontSize: 60,
+      },
     },
   },
 });

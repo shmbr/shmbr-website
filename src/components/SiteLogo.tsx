@@ -14,7 +14,7 @@ export function SiteLogo(props: ISiteLogoProps) {
       component="img"
       src={src}
       alt={alt}
-      sx={{ height: 36, width: "auto", display: "block" }}
+      sx={{ height: { xs: 28, md: 36 }, width: "auto", display: "block" }}
     />
   );
 }

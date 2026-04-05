@@ -5,13 +5,23 @@ export interface IPhotoPlaceThumbnailsProps {
   imageUrls: string[];
   name: string;
   photosCollapsed: boolean;
+  onThumbClick: (
+    event: ReactMouseEvent<HTMLImageElement>,
+    index: number,
+  ) => void;
   photosRegionId: string;
-  onThumbClick: (event: ReactMouseEvent<HTMLImageElement>) => void;
+  thumbIdPrefix: string;
 }
 
 export function PhotoPlaceThumbnails(props: IPhotoPlaceThumbnailsProps) {
-  const { imageUrls, name, photosCollapsed, photosRegionId, onThumbClick } =
-    props;
+  const {
+    imageUrls,
+    name,
+    photosCollapsed,
+    onThumbClick,
+    photosRegionId,
+    thumbIdPrefix,
+  } = props;
 
   if (imageUrls.length === 0) {
     return null;
@@ -33,8 +43,9 @@ export function PhotoPlaceThumbnails(props: IPhotoPlaceThumbnailsProps) {
             key={`${index}-${src}`}
             alt={`${name} — ${index + 1}`}
             component="img"
+            id={`lightbox-thumb-${thumbIdPrefix}-${index}`}
             loading="lazy"
-            onClick={onThumbClick}
+            onClick={(event) => onThumbClick(event, index)}
             src={src}
             sx={{
               cursor: "zoom-in",
