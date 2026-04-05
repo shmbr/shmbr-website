@@ -1,5 +1,13 @@
 import { useId, useState } from "react";
-import { Box, Collapse, Divider, Typography } from "@mui/material";
+import { Box } from "@mui/material";
+import type {
+  KeyboardEvent as ReactKeyboardEvent,
+  MouseEvent as ReactMouseEvent,
+} from "react";
+import { PhotoLightbox, type IPhotoLightboxRequest } from "./PhotoLightbox";
+import { PhotoPlaceSectionHeader } from "./PhotoPlaceSectionHeader";
+import { PhotoPlaceThumbnails } from "./PhotoPlaceThumbnails";
+import { readViewportRect } from "./photoLightboxGeometry";
 
 export interface IPhotoPlace {
   name: string;
@@ -15,82 +23,55 @@ export function PhotoPlaceBlock(props: IPhotoPlaceBlockProps) {
   const { name, imageUrls } = place;
   const photosRegionId = useId();
   const [photosCollapsed, setPhotosCollapsed] = useState(true);
+  const [lightboxRequest, setLightboxRequest] =
+    useState<IPhotoLightboxRequest | null>(null);
 
   const togglePhotosCollapsed = () => {
     setPhotosCollapsed((prev) => !prev);
   };
 
-  const handleTitleKeyDown = (event: React.KeyboardEvent) => {
+  const handleTitleKeyDown = (event: ReactKeyboardEvent) => {
     if (event.key === "Enter" || event.key === " ") {
       event.preventDefault();
       togglePhotosCollapsed();
     }
   };
 
+  const handleThumbClick = (event: ReactMouseEvent<HTMLImageElement>) => {
+    const target = event.currentTarget;
+    setLightboxRequest({
+      alt: `${name} — enlarged`,
+      first: readViewportRect(target.getBoundingClientRect()),
+      src: target.currentSrc || target.src,
+    });
+  };
+
+  const handleLightboxExited = () => {
+    setLightboxRequest(null);
+  };
+
   return (
     <Box>
       <Box sx={{ ml: 3.75, mt: 3.5 }}>
-        <Box
-          sx={{
-            position: "sticky",
-            top: 0,
-            backgroundColor: "background.default",
-            pb: 1,
-          }}
-        >
-          <Typography variant="h4" component="h4" sx={{ m: 0 }}>
-            <Box
-              aria-controls={photosRegionId}
-              aria-expanded={!photosCollapsed}
-              onClick={togglePhotosCollapsed}
-              onKeyDown={handleTitleKeyDown}
-              role="button"
-              sx={{
-                cursor: "pointer",
-                "&:hover": {
-                  textDecoration: "underline",
-                },
-              }}
-              tabIndex={0}
-            >
-              {name}
-            </Box>
-          </Typography>
-          <Divider
-            flexItem
-            sx={{ borderColor: "black", borderWidth: "2px", maxWidth: 350 }}
-          />
-        </Box>
-
-        {imageUrls.length > 0 && (
-          <Collapse in={!photosCollapsed} timeout={750}>
-            <Box
-              id={photosRegionId}
-              sx={{
-                display: "flex",
-                flexWrap: "wrap",
-                gap: 2,
-                mt: 2,
-              }}
-            >
-              {imageUrls.map((src, index) => (
-                <Box
-                  key={`${index}-${src}`}
-                  alt={`${name} — ${index + 1}`}
-                  component="img"
-                  loading="lazy"
-                  src={src}
-                  sx={{
-                    display: "block",
-                    maxWidth: "100%",
-                    maxHeight: 320,
-                  }}
-                />
-              ))}
-            </Box>
-          </Collapse>
-        )}
+        <PhotoPlaceSectionHeader
+          name={name}
+          photosCollapsed={photosCollapsed}
+          photosRegionId={photosRegionId}
+          onTitleKeyDown={handleTitleKeyDown}
+          onToggleCollapsed={togglePhotosCollapsed}
+        />
+        <PhotoPlaceThumbnails
+          imageUrls={imageUrls}
+          name={name}
+          photosCollapsed={photosCollapsed}
+          photosRegionId={photosRegionId}
+          onThumbClick={handleThumbClick}
+        />
       </Box>
+      <PhotoLightbox
+        onExited={handleLightboxExited}
+        request={lightboxRequest}
+      />
     </Box>
   );
 }
