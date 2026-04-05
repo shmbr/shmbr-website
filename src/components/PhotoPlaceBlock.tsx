@@ -66,7 +66,7 @@ export function PhotoPlaceBlock(props: IPhotoPlaceBlockProps) {
 
   return (
     <Box>
-      <Box sx={{ ml: { xs: 3, md: 3.75 }, mt: { xs: 2, md: 3.5 } }}>
+      <Box sx={{ ml: { xs: 0, sm: 3, md: 3.75 }, mt: { xs: 2, md: 3.5 } }}>
         <PhotoPlaceSectionHeader
           name={name}
           photosCollapsed={photosCollapsed}

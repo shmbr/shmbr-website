@@ -34,7 +34,7 @@ export function PhotoPlaceThumbnails(props: IPhotoPlaceThumbnailsProps) {
         sx={{
           display: "flex",
           flexWrap: "wrap",
-          gap: 2,
+          gap: 4,
           mt: 2,
         }}
       >
@@ -50,8 +50,12 @@ export function PhotoPlaceThumbnails(props: IPhotoPlaceThumbnailsProps) {
             sx={{
               cursor: "zoom-in",
               display: "block",
-              maxHeight: 320,
-              maxWidth: "100%",
+              width: "100%",
+              height: "auto",
+              maxHeight: 350,
+              maxWidth: 350,
+              objectFit: "contain",
+              margin: "auto",
             }}
           />
         ))}
