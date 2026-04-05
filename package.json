@@ -12,6 +12,8 @@
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
+    "@fontsource/amatic-sc": "^5.2.7",
+    "@fontsource/courier-prime": "^5.2.8",
     "@mui/material": "^7.3.9",
     "lucide-react": "^1.7.0",
     "react": "^19.2.4",
