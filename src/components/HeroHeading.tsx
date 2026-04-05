@@ -5,6 +5,13 @@ export interface IHeroHeadingProps {
   title: string;
 }
 
+const EQUIPMENT = [
+  // "iphone 6s",
+  // "iphone 12 mini",
+  "iphone 17",
+  "fujifilm xe 3",
+];
+
 export function HeroHeading(props: IHeroHeadingProps) {
   const { prefix, title } = props;
 
@@ -16,9 +23,9 @@ export function HeroHeading(props: IHeroHeadingProps) {
       </Box>
 
       <Typography variant="subtitle1" sx={{ mt: 3, ml: 7.25 }}>
-        <li>iphone 12 mini</li>
-        <li>iphone 17</li>
-        <li>fujifilm xe 3</li>
+        {EQUIPMENT.map((equipment) => (
+          <li key={equipment}>{equipment}</li>
+        ))}
       </Typography>
     </>
   );
