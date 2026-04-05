@@ -19,7 +19,7 @@ export function SiteHeader(props: ISiteHeaderProps) {
   return (
     <Box
       display="flex"
-      justifyContent="space-between"
+      justifyContent={{ xs: "center", sm: "space-between" }}
       alignItems="center"
       flexWrap="wrap"
       gap={2}
@@ -31,7 +31,10 @@ export function SiteHeader(props: ISiteHeaderProps) {
         flexWrap="wrap"
         gap={3}
         rowGap={0.5}
-        sx={{ justifyContent: "right", ml: "auto" }}
+        sx={{
+          justifyContent: { xs: "center", sm: "right" },
+          ml: "auto",
+        }}
       >
         {links.map((link) => (
           <IconLabelLink
