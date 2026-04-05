@@ -5,7 +5,7 @@ import {
   useRef,
   useState,
 } from "react";
-import { Box, IconButton } from "@mui/material";
+import { Box, IconButton, useMediaQuery, useTheme } from "@mui/material";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import {
   computeExpandedRect,
@@ -41,6 +41,8 @@ export function PhotoLightbox(props: IPhotoLightboxProps) {
   const phaseRef = useRef(phase);
   phaseRef.current = phase;
   const lastExpandedRef = useRef<IViewportRect | null>(null);
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
   useLayoutEffect(() => {
     if (!request) {
@@ -153,6 +155,8 @@ export function PhotoLightbox(props: IPhotoLightboxProps) {
     zIndex: 2,
     border: 2,
     borderStyle: "dashed",
+    backgroundColor: "rgba(255, 255, 255, 0.3)",
+    p: 1,
   };
 
   return (
@@ -192,9 +196,9 @@ export function PhotoLightbox(props: IPhotoLightboxProps) {
               }
             }}
             size="small"
-            sx={{ ...navButtonSx, left: 12 }}
+            sx={{ ...navButtonSx, left: 8 }}
           >
-            <ChevronLeft size={36} strokeWidth={1.75} />
+            <ChevronLeft size={isMobile ? 16 : 24} strokeWidth={1.75} />
           </IconButton>
           <IconButton
             aria-label="Next photo"
@@ -206,9 +210,9 @@ export function PhotoLightbox(props: IPhotoLightboxProps) {
               }
             }}
             size="small"
-            sx={{ ...navButtonSx, right: 12 }}
+            sx={{ ...navButtonSx, right: 8 }}
           >
-            <ChevronRight size={36} strokeWidth={1.75} />
+            <ChevronRight size={isMobile ? 16 : 24} strokeWidth={1.75} />
           </IconButton>
         </>
       )}
