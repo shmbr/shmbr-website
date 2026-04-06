@@ -35,7 +35,6 @@ export function PhotoPlaceSectionHeader(props: IPhotoPlaceSectionHeaderProps) {
           onKeyDown={onTitleKeyDown}
           role="button"
           sx={{
-            fontWeight: "bold",
             cursor: "pointer",
             "&:hover": {
               textDecoration: "underline",
@@ -48,7 +47,7 @@ export function PhotoPlaceSectionHeader(props: IPhotoPlaceSectionHeaderProps) {
       </Typography>
       <Divider
         flexItem
-        sx={{ borderColor: "black", borderWidth: "2px", maxWidth: 350 }}
+        sx={{ borderColor: "black", borderWidth: "2px", maxWidth: 390 }}
       />
     </Box>
   );
