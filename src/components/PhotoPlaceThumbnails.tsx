@@ -52,8 +52,8 @@ export function PhotoPlaceThumbnails(props: IPhotoPlaceThumbnailsProps) {
               display: "block",
               width: "100%",
               height: "auto",
-              maxHeight: 350,
-              maxWidth: 350,
+              maxHeight: 390,
+              maxWidth: 390,
               objectFit: "contain",
               margin: "auto",
             }}

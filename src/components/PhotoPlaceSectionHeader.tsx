@@ -35,6 +35,7 @@ export function PhotoPlaceSectionHeader(props: IPhotoPlaceSectionHeaderProps) {
           onKeyDown={onTitleKeyDown}
           role="button"
           sx={{
+            fontWeight: "bold",
             cursor: "pointer",
             "&:hover": {
               textDecoration: "underline",
