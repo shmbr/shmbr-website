@@ -1,4 +1,4 @@
-import { Box, Collapse } from "@mui/material";
+import { Box, Collapse, Typography } from "@mui/material";
 import type { MouseEvent as ReactMouseEvent } from "react";
 
 export interface IPhotoPlaceThumbnailsProps {
@@ -26,6 +26,10 @@ export function PhotoPlaceThumbnails(props: IPhotoPlaceThumbnailsProps) {
   if (imageUrls.length === 0) {
     return null;
   }
+
+  const photoCountLabel = `${imageUrls.length} photo${
+    imageUrls.length === 1 ? "" : "s"
+  }`;
 
   return (
     <Collapse in={!photosCollapsed} timeout={750}>
@@ -59,6 +63,16 @@ export function PhotoPlaceThumbnails(props: IPhotoPlaceThumbnailsProps) {
             }}
           />
         ))}
+        <Box sx={{ width: "100%" }}>
+          <Typography
+            component="div"
+            color="text.secondary"
+            sx={{ textAlign: "center" }}
+            variant="caption"
+          >
+            {photoCountLabel}
+          </Typography>
+        </Box>
       </Box>
     </Collapse>
   );
