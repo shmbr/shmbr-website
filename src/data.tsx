@@ -89,4 +89,17 @@ export const PHOTOS: IPhotoSeriesYear[] = [
       // },
     ],
   },
+  // {
+  //   year: "2025",
+  //   places: [
+  //     {
+  //       name: "Lviv",
+  //       imageUrls: [],
+  //     },
+  //     {
+  //       name: "Bukovel",
+  //       imageUrls: [],
+  //     },
+  //   ],
+  // },
 ];
