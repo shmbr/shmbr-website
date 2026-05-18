@@ -5,7 +5,7 @@ import {
   useRef,
   useState,
 } from "react";
-import { Box, IconButton, useMediaQuery, useTheme } from "@mui/material";
+import { Box, ButtonBase, useMediaQuery, useTheme } from "@mui/material";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import {
   computeExpandedRect,
@@ -155,16 +155,38 @@ export function PhotoLightbox(props: IPhotoLightboxProps) {
   const canGoPrev = index > 0;
   const canGoNext = index < imageUrls.length - 1;
 
-  const navButtonSx = {
+  const navZoneWidth = isMobile ? 56 : 72;
+  const navZoneSx = {
+    alignItems: "center",
+    backgroundColor: "rgb(244, 244, 244)",
+    borderColor: "text.primary",
+    bottom: 0,
     color: "text.primary",
+    cursor: "pointer",
+    display: "flex",
+    justifyContent: "center",
+    p: 0,
     position: "fixed",
-    top: "50%",
-    transform: "translateY(-50%)",
+    top: 0,
+    width: navZoneWidth,
     zIndex: 2,
-    border: 2,
-    borderStyle: "dashed",
-    backgroundColor: "rgba(255, 255, 255, 0.3)",
-    p: 1,
+    borderWidth: 0,
+    transition: "background-color 0.2s ease-in-out",
+    "&:disabled": {
+      cursor: "default",
+      opacity: 0.35,
+    },
+    "&:hover": {
+      backgroundColor: "rgb(236, 236, 236)",
+    },
+    ...(isMobile && {
+      borderColor: "transparent !important",
+      background: "transparent !important",
+      color: "white !important",
+      "&:hover": {
+        background: "transparent !important",
+      },
+    }),
   };
 
   return (
@@ -194,8 +216,9 @@ export function PhotoLightbox(props: IPhotoLightboxProps) {
       />
       {showNav && (
         <>
-          <IconButton
+          <Box
             aria-label="Previous photo"
+            component={ButtonBase}
             disabled={!canGoPrev}
             onClick={(event) => {
               event.stopPropagation();
@@ -203,13 +226,30 @@ export function PhotoLightbox(props: IPhotoLightboxProps) {
                 onNavigateIndex(index - 1);
               }
             }}
-            size="small"
-            sx={{ ...navButtonSx, left: 8 }}
+            sx={{
+              ...navZoneSx,
+              borderRight: 2,
+              borderRightStyle: "dashed",
+              left: 0,
+            }}
+            type="button"
           >
-            <ChevronLeft size={isMobile ? 16 : 24} strokeWidth={1.75} />
-          </IconButton>
-          <IconButton
+            <ChevronLeft
+              size={isMobile ? 20 : 28}
+              strokeWidth={1.75}
+              style={
+                isMobile
+                  ? {
+                      backgroundColor: "rgba(0, 0, 0, 0.3)",
+                      borderRadius: "20%",
+                    }
+                  : {}
+              }
+            />
+          </Box>
+          <Box
             aria-label="Next photo"
+            component={ButtonBase}
             disabled={!canGoNext}
             onClick={(event) => {
               event.stopPropagation();
@@ -217,11 +257,27 @@ export function PhotoLightbox(props: IPhotoLightboxProps) {
                 onNavigateIndex(index + 1);
               }
             }}
-            size="small"
-            sx={{ ...navButtonSx, right: 8 }}
+            sx={{
+              ...navZoneSx,
+              borderLeft: 2,
+              borderLeftStyle: "dashed",
+              right: 0,
+            }}
+            type="button"
           >
-            <ChevronRight size={isMobile ? 16 : 24} strokeWidth={1.75} />
-          </IconButton>
+            <ChevronRight
+              size={isMobile ? 20 : 28}
+              strokeWidth={1.75}
+              style={
+                isMobile
+                  ? {
+                      backgroundColor: "rgba(0, 0, 0, 0.3)",
+                      borderRadius: "20%",
+                    }
+                  : {}
+              }
+            />
+          </Box>
         </>
       )}
       <Box
