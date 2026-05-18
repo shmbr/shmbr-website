@@ -32,7 +32,7 @@ export interface IPhotoLightboxProps {
 type ILightboxPhase = "opening" | "open" | "closing";
 
 const LIGHTBOX_EASING = "cubic-bezier(0.2, 0.8, 0.2, 1)";
-const LIGHTBOX_DURATION = "0.5s";
+const LIGHTBOX_DURATION = "0.4s";
 
 export function PhotoLightbox(props: IPhotoLightboxProps) {
   const { onExited, onNavigateIndex, request } = props;
@@ -76,6 +76,17 @@ export function PhotoLightbox(props: IPhotoLightboxProps) {
   }, [request]);
 
   useEffect(() => {
+    if (!request) {
+      return;
+    }
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [request]);
+
+  useEffect(() => {
     if (!request || phase === "closing") {
       return;
     }
@@ -99,11 +110,8 @@ export function PhotoLightbox(props: IPhotoLightboxProps) {
       }
     };
     document.addEventListener("keydown", onKeyDown);
-    const previousOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
     return () => {
       document.removeEventListener("keydown", onKeyDown);
-      document.body.style.overflow = previousOverflow;
     };
   }, [beginClose, onNavigateIndex, request, phase]);
 
