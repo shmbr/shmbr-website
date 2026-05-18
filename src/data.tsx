@@ -5,6 +5,20 @@ export const PHOTOS: IPhotoSeriesYear[] = [
     year: "2026",
     places: [
       {
+        name: "Warsaw",
+        imageUrls: [
+          "https://9ttkpiklpeguudoy.public.blob.vercel-storage.com/2026-05-warszawa/DSCF7953.jpeg",
+          "https://9ttkpiklpeguudoy.public.blob.vercel-storage.com/2026-05-warszawa/DSCF7954.jpeg",
+          "https://9ttkpiklpeguudoy.public.blob.vercel-storage.com/2026-05-warszawa/DSCF7955.jpeg",
+          "https://9ttkpiklpeguudoy.public.blob.vercel-storage.com/2026-05-warszawa/DSCF7958.jpeg",
+          "https://9ttkpiklpeguudoy.public.blob.vercel-storage.com/2026-05-warszawa/DSCF7960.jpeg",
+          "https://9ttkpiklpeguudoy.public.blob.vercel-storage.com/2026-05-warszawa/DSCF7963.jpeg",
+          "https://9ttkpiklpeguudoy.public.blob.vercel-storage.com/2026-05-warszawa/DSCF7990.jpeg",
+          "https://9ttkpiklpeguudoy.public.blob.vercel-storage.com/2026-05-warszawa/DSCF7994.jpeg",
+          "https://9ttkpiklpeguudoy.public.blob.vercel-storage.com/2026-05-warszawa/DSCF7996.jpeg",
+        ],
+      },
+      {
         name: "Paris",
         imageUrls: [
           "https://9ttkpiklpeguudoy.public.blob.vercel-storage.com/2026-03-paris/DSCF7194.jpeg",
@@ -83,10 +97,6 @@ export const PHOTOS: IPhotoSeriesYear[] = [
           "https://9ttkpiklpeguudoy.public.blob.vercel-storage.com/2026-03-krakow/DSCF7183.jpeg",
         ],
       },
-      // {
-      //   name: "Warsaw",
-      //   imageUrls: [],
-      // },
     ],
   },
   // {
