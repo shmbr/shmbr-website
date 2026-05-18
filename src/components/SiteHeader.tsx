@@ -33,7 +33,7 @@ export function SiteHeader(props: ISiteHeaderProps) {
         rowGap={0.5}
         sx={{
           justifyContent: { xs: "center", sm: "right" },
-          ml: "auto",
+          mr: { xs: 1, sm: 0 },
         }}
       >
         {links.map((link) => (
