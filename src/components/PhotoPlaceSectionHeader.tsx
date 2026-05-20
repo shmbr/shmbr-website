@@ -1,8 +1,9 @@
-import { Box, Divider, Typography } from "@mui/material";
+import { Box, Collapse, Divider, Typography } from "@mui/material";
 import type { KeyboardEvent as ReactKeyboardEvent } from "react";
 
 export interface IPhotoPlaceSectionHeaderProps {
-  name: string;
+  title: string;
+  subtitle?: string;
   photosCollapsed: boolean;
   photosRegionId: string;
   onTitleKeyDown: (event: ReactKeyboardEvent) => void;
@@ -11,7 +12,8 @@ export interface IPhotoPlaceSectionHeaderProps {
 
 export function PhotoPlaceSectionHeader(props: IPhotoPlaceSectionHeaderProps) {
   const {
-    name,
+    title,
+    subtitle,
     photosCollapsed,
     photosRegionId,
     onTitleKeyDown,
@@ -19,37 +21,51 @@ export function PhotoPlaceSectionHeader(props: IPhotoPlaceSectionHeaderProps) {
   } = props;
 
   return (
-    <Box
-      sx={{
-        position: "sticky",
-        top: 0,
-        backgroundColor: "background.default",
-        pb: 1,
-      }}
-    >
-      <Typography variant="h4" component="h4" sx={{ m: 0 }}>
-        <Box
-          aria-controls={photosRegionId}
-          aria-expanded={!photosCollapsed}
-          onClick={onToggleCollapsed}
-          onKeyDown={onTitleKeyDown}
-          role="button"
-          sx={{
-            fontWeight: 700,
-            cursor: "pointer",
-            "&:hover": {
-              textDecoration: "underline",
-            },
-          }}
-          tabIndex={0}
+    <>
+      <Box
+        sx={{
+          position: "sticky",
+          top: 0,
+          backgroundColor: "background.default",
+          pb: 1,
+          zIndex: 2,
+          background: "#fafafa",
+        }}
+      >
+        <Typography variant="h4" component="h4" sx={{ m: 0 }}>
+          <Box
+            aria-controls={photosRegionId}
+            aria-expanded={!photosCollapsed}
+            onClick={onToggleCollapsed}
+            onKeyDown={onTitleKeyDown}
+            role="button"
+            sx={{
+              fontWeight: 700,
+              cursor: "pointer",
+              "&:hover": {
+                textDecoration: "underline",
+              },
+            }}
+            tabIndex={0}
+          >
+            {title}
+          </Box>
+        </Typography>
+        <Divider
+          flexItem
+          sx={{ borderColor: "black", borderWidth: "2px", maxWidth: 390 }}
+        />
+      </Box>
+      <Collapse in={!photosCollapsed} timeout={750}>
+        <Typography
+          fontWeight={"bold"}
+          variant="caption"
+          color="#bbb"
+          sx={{ position: "relative", top: "-8px" }}
         >
-          {name}
-        </Box>
-      </Typography>
-      <Divider
-        flexItem
-        sx={{ borderColor: "black", borderWidth: "2px", maxWidth: 390 }}
-      />
-    </Box>
+          {subtitle}
+        </Typography>
+      </Collapse>
+    </>
   );
 }

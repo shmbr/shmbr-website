@@ -11,6 +11,7 @@ import { readViewportRect } from "./photoLightboxGeometry";
 
 export interface IPhotoPlace {
   name: string;
+  coordinates?: string;
   imageUrls: string[];
 }
 
@@ -20,7 +21,7 @@ export interface IPhotoPlaceBlockProps {
 
 export function PhotoPlaceBlock(props: IPhotoPlaceBlockProps) {
   const { place } = props;
-  const { name, imageUrls } = place;
+  const { name, coordinates, imageUrls } = place;
   const photosRegionId = useId();
   const thumbIdPrefix = useMemo(
     () => photosRegionId.replace(/:/g, ""),
@@ -66,9 +67,10 @@ export function PhotoPlaceBlock(props: IPhotoPlaceBlockProps) {
 
   return (
     <Box>
-      <Box sx={{ ml: { xs: 0, sm: 3, md: 3.75 }, mt: { xs: 2, md: 3.5 } }}>
+      <Box sx={{ ml: { xs: 0, sm: 3, md: 3.75 }, mt: { xs: 2, md: 2 } }}>
         <PhotoPlaceSectionHeader
-          name={name}
+          title={name}
+          subtitle={coordinates}
           photosCollapsed={photosCollapsed}
           photosRegionId={photosRegionId}
           onTitleKeyDown={handleTitleKeyDown}

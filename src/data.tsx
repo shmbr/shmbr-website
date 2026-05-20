@@ -6,6 +6,7 @@ export const PHOTOS: IPhotoSeriesYear[] = [
     places: [
       {
         name: "Warsaw",
+        coordinates: "52.24779, 21.01413",
         imageUrls: [
           "https://9ttkpiklpeguudoy.public.blob.vercel-storage.com/2026-05-warszawa/DSCF7953.jpeg",
           "https://9ttkpiklpeguudoy.public.blob.vercel-storage.com/2026-05-warszawa/DSCF7954.jpeg",
@@ -20,6 +21,7 @@ export const PHOTOS: IPhotoSeriesYear[] = [
       },
       {
         name: "Paris",
+        coordinates: "48.85661, 2.35222",
         imageUrls: [
           "https://9ttkpiklpeguudoy.public.blob.vercel-storage.com/2026-03-paris/DSCF7194.jpeg",
           "https://9ttkpiklpeguudoy.public.blob.vercel-storage.com/2026-03-paris/DSCF7200.jpeg",
@@ -72,6 +74,7 @@ export const PHOTOS: IPhotoSeriesYear[] = [
       },
       {
         name: "Krakow",
+        coordinates: "50.06465, 19.93658",
         imageUrls: [
           "https://9ttkpiklpeguudoy.public.blob.vercel-storage.com/2026-03-krakow/DSCF7049.jpeg",
           "https://9ttkpiklpeguudoy.public.blob.vercel-storage.com/2026-03-krakow/DSCF7051.jpeg",

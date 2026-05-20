@@ -39,7 +39,7 @@ export function PhotoPlaceThumbnails(props: IPhotoPlaceThumbnailsProps) {
           display: "flex",
           flexWrap: "wrap",
           gap: 4,
-          mt: 2,
+          mt: 1,
         }}
       >
         {imageUrls.map((src, index) => (
