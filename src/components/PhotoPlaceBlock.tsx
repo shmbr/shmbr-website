@@ -12,6 +12,7 @@ import { readViewportRect } from "./photoLightboxGeometry";
 export interface IPhotoPlace {
   name: string;
   coordinates?: string;
+  dividerAfter?: string;
   imageUrls: string[];
 }
 

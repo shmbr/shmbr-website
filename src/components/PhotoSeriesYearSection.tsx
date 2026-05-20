@@ -1,6 +1,8 @@
+import { Fragment } from "react";
 import { Box, Typography } from "@mui/material";
 
 import { PhotoPlaceBlock, type IPhotoPlace } from "./PhotoPlaceBlock";
+import { PhotoPlaceDivider } from "./PhotoPlaceDivider";
 
 export interface IPhotoSeriesYear {
   year: string;
@@ -17,7 +19,12 @@ export function PhotoSeriesYearSection(props: IPhotoSeriesYearSectionProps) {
       <Typography variant="h2">-{year}</Typography>
       <Box>
         {places.map((place, index) => (
-          <PhotoPlaceBlock key={`${place.name}-${index}`} place={place} />
+          <Fragment key={`${place.name}-${index}`}>
+            <PhotoPlaceBlock place={place} />
+            {place.dividerAfter ? (
+              <PhotoPlaceDivider label={place.dividerAfter} />
+            ) : null}
+          </Fragment>
         ))}
       </Box>
     </Box>

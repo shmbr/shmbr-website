@@ -1,16 +1,14 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Divider, Typography } from "@mui/material";
 
 export interface IHeroHeadingProps {
   prefix: string;
   title: string;
 }
 
-const EQUIPMENT = [
-  // "iphone 6s",
-  // "iphone 12 mini",
-  "iphone 17",
-  "fujifilm xe 3",
-];
+const EQUIPMENT = {
+  current: ["iphone 17", "fujifilm xe 3"],
+  old: ["iphone 6s", "iphone 12 mini"],
+};
 
 export function HeroHeading(props: IHeroHeadingProps) {
   const { prefix, title } = props;
@@ -27,10 +25,25 @@ export function HeroHeading(props: IHeroHeadingProps) {
         <Typography variant="h1">{title}</Typography>
       </Box>
 
-      <Typography variant="subtitle1" sx={{ mt: 3, ml: 7.25 }}>
-        {EQUIPMENT.map((equipment) => (
+      <Typography
+        variant="subtitle1"
+        component="ul"
+        sx={{ mt: 3, ml: 7.25, width: "fit-content" }}
+      >
+        {EQUIPMENT.current.map((equipment) => (
           <li key={equipment}>{equipment}</li>
         ))}
+        <Divider sx={{ borderColor: "black", borderWidth: "1px", ml: -3 }} />
+
+        {EQUIPMENT.old.length > 0 && (
+          <>
+            {EQUIPMENT.old.map((equipment) => (
+              <li key={equipment} style={{ color: "#bbb" }}>
+                {equipment}
+              </li>
+            ))}
+          </>
+        )}
       </Typography>
     </>
   );
