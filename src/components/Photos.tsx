@@ -9,7 +9,7 @@ function Photos() {
       {PHOTOS.map((entry, index) => (
         <PhotoSeriesYearSection
           key={`${entry.year}-${index}`}
-          places={entry.places}
+          city={entry.city}
           year={entry.year}
         />
       ))}

@@ -9,6 +9,19 @@ import { PhotoPlaceSectionHeader } from "./PhotoPlaceSectionHeader";
 import { PhotoPlaceThumbnails } from "./PhotoPlaceThumbnails";
 import { readViewportRect } from "./photoLightboxGeometry";
 
+export interface IPhotoPlaceEntry {
+  month?: string;
+  info?: string;
+  imageUrls: string[];
+  dividerAfter?: string;
+}
+
+export interface IPhotoCity {
+  name: string;
+  coordinates?: string;
+  places: IPhotoPlaceEntry[];
+}
+
 export interface IPhotoPlace {
   name: string;
   coordinates?: string;
