@@ -30,6 +30,8 @@ export interface IPhotoPlaceBlockProps {
   place: IPhotoPlaceEntry;
   headerVariant?: PhotoPlaceSectionHeaderVariant;
   nested?: boolean;
+  photosCollapsed?: boolean;
+  onPhotosCollapsedChange?: (collapsed: boolean) => void;
 }
 
 export function PhotoPlaceBlock(props: IPhotoPlaceBlockProps) {
@@ -39,6 +41,8 @@ export function PhotoPlaceBlock(props: IPhotoPlaceBlockProps) {
     place,
     headerVariant = "city",
     nested = false,
+    photosCollapsed: photosCollapsedProp,
+    onPhotosCollapsedChange,
   } = props;
   const { month, info, imageUrls } = place;
   const displaySubtitle =
@@ -48,12 +52,18 @@ export function PhotoPlaceBlock(props: IPhotoPlaceBlockProps) {
     () => photosRegionId.replace(/:/g, ""),
     [photosRegionId],
   );
-  const [photosCollapsed, setPhotosCollapsed] = useState(true);
+  const [photosCollapsedInternal, setPhotosCollapsedInternal] = useState(true);
+  const photosCollapsed = photosCollapsedProp ?? photosCollapsedInternal;
   const [lightboxRequest, setLightboxRequest] =
     useState<IPhotoLightboxRequest | null>(null);
 
   const togglePhotosCollapsed = () => {
-    setPhotosCollapsed((prev) => !prev);
+    const next = !photosCollapsed;
+    if (onPhotosCollapsedChange) {
+      onPhotosCollapsedChange(next);
+    } else {
+      setPhotosCollapsedInternal(next);
+    }
   };
 
   const handleTitleKeyDown = (event: ReactKeyboardEvent) => {
