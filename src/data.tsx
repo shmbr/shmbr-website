@@ -1,10 +1,15 @@
 import { type IPhotoSeriesYear } from "./components/PhotoSeriesYearSection";
 
+//
+// --- DATA CONFIGURED FROM OLDEST TO NEWEST --- //
+//
+
 const BLOB_STORAGE_BASE =
   "https://9ttkpiklpeguudoy.public.blob.vercel-storage.com";
 
 const BLOB_FOLDERS = {
-  warsaw: "2026-05-warszawa",
+  warsaw_05_Zamek: "2026-05-warszawa/palace",
+  warsaw_05_highline: "2026-05-warszawa/highline",
   paris: "2026-03-paris",
   krakow: "2026-03-krakow",
 } as const;
@@ -23,17 +28,35 @@ export const PHOTOS: IPhotoSeriesYear[] = [
         places: [
           {
             month: "MAY",
+            info: "Zamek Królewski",
+            imageUrls: [
+              blobUrl(BLOB_FOLDERS.warsaw_05_Zamek, "DSCF8002.jpeg"),
+              blobUrl(BLOB_FOLDERS.warsaw_05_Zamek, "DSCF8001.jpeg"),
+              blobUrl(BLOB_FOLDERS.warsaw_05_Zamek, "DSCF8004.jpeg"),
+              blobUrl(BLOB_FOLDERS.warsaw_05_Zamek, "DSCF8008.jpeg"),
+              blobUrl(BLOB_FOLDERS.warsaw_05_Zamek, "DSCF8005.jpeg"),
+              blobUrl(BLOB_FOLDERS.warsaw_05_Zamek, "DSCF8011.jpeg"),
+              blobUrl(BLOB_FOLDERS.warsaw_05_Zamek, "DSCF8015.jpeg"),
+              blobUrl(BLOB_FOLDERS.warsaw_05_Zamek, "DSCF8017.jpeg"),
+              blobUrl(BLOB_FOLDERS.warsaw_05_Zamek, "DSCF8019.jpeg"),
+              blobUrl(BLOB_FOLDERS.warsaw_05_Zamek, "DSCF8025.jpeg"),
+              blobUrl(BLOB_FOLDERS.warsaw_05_Zamek, "DSCF8036.jpeg"),
+              blobUrl(BLOB_FOLDERS.warsaw_05_Zamek, "DSCF8038.jpeg"),
+            ],
+          },
+          {
+            month: "MAY",
             info: "Highline Warsaw",
             imageUrls: [
-              blobUrl(BLOB_FOLDERS.warsaw, "DSCF7953.jpeg"),
-              blobUrl(BLOB_FOLDERS.warsaw, "DSCF7954.jpeg"),
-              blobUrl(BLOB_FOLDERS.warsaw, "DSCF7955.jpeg"),
-              blobUrl(BLOB_FOLDERS.warsaw, "DSCF7958.jpeg"),
-              blobUrl(BLOB_FOLDERS.warsaw, "DSCF7960.jpeg"),
-              blobUrl(BLOB_FOLDERS.warsaw, "DSCF7963.jpeg"),
-              blobUrl(BLOB_FOLDERS.warsaw, "DSCF7990.jpeg"),
-              blobUrl(BLOB_FOLDERS.warsaw, "DSCF7994.jpeg"),
-              blobUrl(BLOB_FOLDERS.warsaw, "DSCF7996.jpeg"),
+              blobUrl(BLOB_FOLDERS.warsaw_05_highline, "DSCF7953.jpeg"),
+              blobUrl(BLOB_FOLDERS.warsaw_05_highline, "DSCF7954.jpeg"),
+              blobUrl(BLOB_FOLDERS.warsaw_05_highline, "DSCF7955.jpeg"),
+              blobUrl(BLOB_FOLDERS.warsaw_05_highline, "DSCF7958.jpeg"),
+              blobUrl(BLOB_FOLDERS.warsaw_05_highline, "DSCF7960.jpeg"),
+              blobUrl(BLOB_FOLDERS.warsaw_05_highline, "DSCF7963.jpeg"),
+              blobUrl(BLOB_FOLDERS.warsaw_05_highline, "DSCF7990.jpeg"),
+              blobUrl(BLOB_FOLDERS.warsaw_05_highline, "DSCF7994.jpeg"),
+              blobUrl(BLOB_FOLDERS.warsaw_05_highline, "DSCF7996.jpeg"),
             ],
           },
         ],
@@ -129,19 +152,4 @@ export const PHOTOS: IPhotoSeriesYear[] = [
       },
     ],
   },
-  // {
-  //   year: "2025",
-  //   city: [
-  //     {
-  //       name: "Lviv",
-  //       coordinates: "49.83826, 24.02324",
-  //       places: [{ imageUrls: [] }],
-  //     },
-  //     {
-  //       name: "Bukovel",
-  //       coordinates: "49.52402, 24.74222",
-  //       places: [{ imageUrls: [] }],
-  //     },
-  //   ],
-  // },
 ];

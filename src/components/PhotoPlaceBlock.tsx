@@ -5,7 +5,10 @@ import type {
   MouseEvent as ReactMouseEvent,
 } from "react";
 import { PhotoLightbox, type IPhotoLightboxRequest } from "./PhotoLightbox";
-import { PhotoPlaceSectionHeader } from "./PhotoPlaceSectionHeader";
+import {
+  PhotoPlaceSectionHeader,
+  type PhotoPlaceSectionHeaderVariant,
+} from "./PhotoPlaceSectionHeader";
 import { PhotoPlaceThumbnails } from "./PhotoPlaceThumbnails";
 import { readViewportRect } from "./photoLightboxGeometry";
 
@@ -13,7 +16,6 @@ export interface IPhotoPlaceEntry {
   month?: string;
   info?: string;
   imageUrls: string[];
-  dividerAfter?: string;
 }
 
 export interface IPhotoCity {
@@ -22,20 +24,25 @@ export interface IPhotoCity {
   places: IPhotoPlaceEntry[];
 }
 
-export interface IPhotoPlace {
-  name: string;
-  coordinates?: string;
-  dividerAfter?: string;
-  imageUrls: string[];
-}
-
 export interface IPhotoPlaceBlockProps {
-  place: IPhotoPlace;
+  cityName: string;
+  coordinates?: string;
+  place: IPhotoPlaceEntry;
+  headerVariant?: PhotoPlaceSectionHeaderVariant;
+  nested?: boolean;
 }
 
 export function PhotoPlaceBlock(props: IPhotoPlaceBlockProps) {
-  const { place } = props;
-  const { name, coordinates, imageUrls } = place;
+  const {
+    cityName,
+    coordinates,
+    place,
+    headerVariant = "city",
+    nested = false,
+  } = props;
+  const { month, info, imageUrls } = place;
+  const displaySubtitle =
+    headerVariant === "placeEntry" ? undefined : coordinates;
   const photosRegionId = useId();
   const thumbIdPrefix = useMemo(
     () => photosRegionId.replace(/:/g, ""),
@@ -65,7 +72,7 @@ export function PhotoPlaceBlock(props: IPhotoPlaceBlockProps) {
       imageUrls,
       index: thumbIndex,
       openFirst: readViewportRect(target.getBoundingClientRect()),
-      placeName: name,
+      placeName: cityName,
       sessionKey: Date.now(),
       thumbIdPrefix,
     });
@@ -81,10 +88,19 @@ export function PhotoPlaceBlock(props: IPhotoPlaceBlockProps) {
 
   return (
     <Box>
-      <Box sx={{ ml: { xs: 0, sm: 3, md: 3.75 }, mt: { xs: 2, md: 2 } }}>
+      <Box
+        sx={
+          nested
+            ? { mt: 1 }
+            : { ml: { xs: 0, sm: 3, md: 3.75 }, mt: { xs: 2, md: 2 } }
+        }
+      >
         <PhotoPlaceSectionHeader
-          title={name}
-          subtitle={coordinates}
+          variant={headerVariant}
+          title={cityName}
+          month={month}
+          info={info}
+          subtitle={displaySubtitle}
           photosCollapsed={photosCollapsed}
           photosRegionId={photosRegionId}
           onTitleKeyDown={handleTitleKeyDown}
@@ -92,7 +108,7 @@ export function PhotoPlaceBlock(props: IPhotoPlaceBlockProps) {
         />
         <PhotoPlaceThumbnails
           imageUrls={imageUrls}
-          name={name}
+          name={cityName}
           photosCollapsed={photosCollapsed}
           photosRegionId={photosRegionId}
           thumbIdPrefix={thumbIdPrefix}

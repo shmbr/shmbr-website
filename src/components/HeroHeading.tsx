@@ -6,8 +6,8 @@ export interface IHeroHeadingProps {
 }
 
 const EQUIPMENT = {
-  current: ["iphone 17", "fujifilm xe 3"],
-  old: ["iphone 6s", "iphone 12 mini"],
+  current: ["fujifilm xe 3", "iphone 17"],
+  old: ["iphone 12 mini", "iphone 6s"],
 };
 
 export function HeroHeading(props: IHeroHeadingProps) {
