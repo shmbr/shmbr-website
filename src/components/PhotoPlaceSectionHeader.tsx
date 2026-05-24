@@ -39,10 +39,14 @@ export function PhotoPlaceSectionHeader(props: IPhotoPlaceSectionHeaderProps) {
           m: 0,
           ml: { xs: 1.5, sm: 2.25 },
           width: "fit-content",
-          borderRadius: 2,
           px: 1,
-          zIndex: 2,
-          // backdropFilter: "blur(5px)",
+          mb: -1,
+          zIndex: 1,
+          backdropFilter: "blur(5px)",
+          transition: "all 0.3s ease-in-out",
+          ":hover": {
+            backdropFilter: "blur(20px)",
+          },
         }}
       >
         <Box
@@ -61,14 +65,7 @@ export function PhotoPlaceSectionHeader(props: IPhotoPlaceSectionHeaderProps) {
         >
           ▪{" "}
           {month ? (
-            <Box
-              component="span"
-              sx={{
-                fontWeight: 700,
-
-                mixBlendMode: "difference",
-              }}
-            >
+            <Box component="span" sx={{ fontWeight: 700 }}>
               {month}
             </Box>
           ) : null}
