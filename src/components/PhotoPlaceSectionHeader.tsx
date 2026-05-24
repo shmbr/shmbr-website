@@ -35,7 +35,7 @@ export function PhotoPlaceSectionHeader(props: IPhotoPlaceSectionHeaderProps) {
         component="div"
         sx={{
           position: "sticky",
-          top: 50,
+          top: { xs: 45, md: 50 },
           m: 0,
           ml: { xs: 1.5, sm: 2.25 },
           width: "fit-content",
