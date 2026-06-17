@@ -4,8 +4,7 @@ import { type IPhotoSeriesYear } from "./components/PhotoSeriesYearSection";
 // --- DATA CONFIGURED FROM OLDEST TO NEWEST --- //
 //
 
-const BLOB_STORAGE_BASE =
-  "https://9ttkpiklpeguudoy.public.blob.vercel-storage.com";
+const BLOB_STORAGE_BASE = "https://shmbr-photos.s3.us-east-1.amazonaws.com";
 
 const BLOB_FOLDERS = {
   warsaw_05_Zamek: "2026-05-warszawa/palace",
