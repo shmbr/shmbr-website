@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import { Box, Collapse, Typography } from "@mui/material";
 import type { MouseEvent as ReactMouseEvent } from "react";
 
@@ -23,6 +24,11 @@ export function PhotoPlaceThumbnails(props: IPhotoPlaceThumbnailsProps) {
     thumbIdPrefix,
   } = props;
 
+  const hasBeenOpenedRef = useRef(false);
+  if (!photosCollapsed) {
+    hasBeenOpenedRef.current = true;
+  }
+
   if (imageUrls.length === 0) {
     return null;
   }
@@ -33,47 +39,49 @@ export function PhotoPlaceThumbnails(props: IPhotoPlaceThumbnailsProps) {
 
   return (
     <Collapse in={!photosCollapsed} timeout={750}>
-      <Box
-        id={photosRegionId}
-        sx={{
-          display: "flex",
-          flexWrap: "wrap",
-          gap: 4,
-          mt: 1,
-        }}
-      >
-        {imageUrls.map((src, index) => (
-          <Box
-            key={`${index}-${src}`}
-            alt={`${name} — ${index + 1}`}
-            component="img"
-            id={`lightbox-thumb-${thumbIdPrefix}-${index}`}
-            loading="lazy"
-            onClick={(event) => onThumbClick(event, index)}
-            src={src}
-            sx={{
-              cursor: "zoom-in",
-              display: "block",
-              width: "100%",
-              height: "auto",
-              maxHeight: 390,
-              maxWidth: 390,
-              objectFit: "contain",
-              margin: "auto",
-            }}
-          />
-        ))}
-        <Box sx={{ width: "100%" }}>
-          <Typography
-            component="div"
-            color="text.secondary"
-            sx={{ textAlign: "center" }}
-            variant="caption"
-          >
-            {photoCountLabel}
-          </Typography>
+      {hasBeenOpenedRef.current ? (
+        <Box
+          id={photosRegionId}
+          sx={{
+            display: "flex",
+            flexWrap: "wrap",
+            gap: 4,
+            mt: 1,
+          }}
+        >
+          {imageUrls.map((src, index) => (
+            <Box
+              key={`${index}-${src}`}
+              alt={`${name} — ${index + 1}`}
+              component="img"
+              id={`lightbox-thumb-${thumbIdPrefix}-${index}`}
+              loading="lazy"
+              onClick={(event) => onThumbClick(event, index)}
+              src={src}
+              sx={{
+                cursor: "zoom-in",
+                display: "block",
+                width: "100%",
+                height: "auto",
+                maxHeight: 390,
+                maxWidth: 390,
+                objectFit: "contain",
+                margin: "auto",
+              }}
+            />
+          ))}
+          <Box sx={{ width: "100%" }}>
+            <Typography
+              component="div"
+              color="text.secondary"
+              sx={{ textAlign: "center" }}
+              variant="caption"
+            >
+              {photoCountLabel}
+            </Typography>
+          </Box>
         </Box>
-      </Box>
+      ) : null}
     </Collapse>
   );
 }
