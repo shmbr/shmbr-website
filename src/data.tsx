@@ -210,79 +210,79 @@ export const PHOTOS: IPhotoSeriesYear[] = [
       },
     ],
   },
-  {
-    year: "2025",
-    city: [
-      {
-        name: "Warszawa",
-        coordinates: "",
-        places: [
-          {
-            imageUrls: [
-              blobUrl(BLOB_FOLDERS["2026-warszawa"], "IMG_0024.jpeg"),
-              blobUrl(BLOB_FOLDERS["2026-warszawa"], "IMG_0017.jpeg"),
-              blobUrl(BLOB_FOLDERS["2026-warszawa"], "IMG_5379.jpeg"),
-              blobUrl(BLOB_FOLDERS["2026-warszawa"], "IMG_0158.jpeg"),
-              blobUrl(BLOB_FOLDERS["2026-warszawa"], "IMG_0249.jpeg"),
-              blobUrl(BLOB_FOLDERS["2026-warszawa"], "IMG_0316.jpeg"),
-              blobUrl(BLOB_FOLDERS["2026-warszawa"], "IMG_5094.jpeg"),
-              blobUrl(BLOB_FOLDERS["2026-warszawa"], "IMG_0431.jpeg"),
-              blobUrl(BLOB_FOLDERS["2026-warszawa"], "IMG_5179.jpeg"),
-              blobUrl(BLOB_FOLDERS["2026-warszawa"], "IMG_7977.jpeg"),
-              blobUrl(BLOB_FOLDERS["2026-warszawa"], "IMG_0019.jpeg"),
-              // blobUrl(BLOB_FOLDERS["2026-warszawa"], "IMG_5090.jpeg"),
-            ],
-          },
-        ],
-      },
-      {
-        name: "Lviv",
-        coordinates: "",
-        places: [
-          {
-            imageUrls: [
-              blobUrl(BLOB_FOLDERS["2025-lviv"], "IMG_3745.jpeg"),
-              blobUrl(BLOB_FOLDERS["2025-lviv"], "IMG_2731.jpeg"),
-              blobUrl(BLOB_FOLDERS["2025-lviv"], "IMG_3265.jpeg"),
-              blobUrl(BLOB_FOLDERS["2025-lviv"], "IMG_4509.jpeg"),
-              blobUrl(BLOB_FOLDERS["2025-lviv"], "IMG_4514.jpeg"),
-              blobUrl(BLOB_FOLDERS["2025-lviv"], "IMG_1786.jpeg"),
-              // blobUrl(BLOB_FOLDERS["2025-lviv"], "IMG_3660.jpeg"),
-            ],
-          },
-        ],
-      },
-      {
-        name: "Snowboarding",
-        coordinates: "",
-        places: [
-          {
-            imageUrls: [
-              blobUrl(BLOB_FOLDERS["2025-snowboarding"], "IMG_4582.jpeg"),
-              blobUrl(BLOB_FOLDERS["2025-snowboarding"], "IMG_3710.jpeg"),
-              blobUrl(BLOB_FOLDERS["2025-snowboarding"], "IMG_3727.HEIC"),
-            ],
-          },
-        ],
-      },
-    ],
-  },
+  // {
+  //   year: "2025",
+  //   city: [
+  //     {
+  //       name: "Warszawa",
+  //       coordinates: "",
+  //       places: [
+  //         {
+  //           imageUrls: [
+  //             blobUrl(BLOB_FOLDERS["2026-warszawa"], "IMG_0024.jpeg"),
+  //             blobUrl(BLOB_FOLDERS["2026-warszawa"], "IMG_0017.jpeg"),
+  //             blobUrl(BLOB_FOLDERS["2026-warszawa"], "IMG_5379.jpeg"),
+  //             blobUrl(BLOB_FOLDERS["2026-warszawa"], "IMG_0158.jpeg"),
+  //             blobUrl(BLOB_FOLDERS["2026-warszawa"], "IMG_0249.jpeg"),
+  //             blobUrl(BLOB_FOLDERS["2026-warszawa"], "IMG_0316.jpeg"),
+  //             blobUrl(BLOB_FOLDERS["2026-warszawa"], "IMG_5094.jpeg"),
+  //             blobUrl(BLOB_FOLDERS["2026-warszawa"], "IMG_0431.jpeg"),
+  //             blobUrl(BLOB_FOLDERS["2026-warszawa"], "IMG_5179.jpeg"),
+  //             blobUrl(BLOB_FOLDERS["2026-warszawa"], "IMG_7977.jpeg"),
+  //             blobUrl(BLOB_FOLDERS["2026-warszawa"], "IMG_0019.jpeg"),
+  //             // blobUrl(BLOB_FOLDERS["2026-warszawa"], "IMG_5090.jpeg"),
+  //           ],
+  //         },
+  //       ],
+  //     },
+  //     {
+  //       name: "Lviv",
+  //       coordinates: "",
+  //       places: [
+  //         {
+  //           imageUrls: [
+  //             blobUrl(BLOB_FOLDERS["2025-lviv"], "IMG_3745.jpeg"),
+  //             blobUrl(BLOB_FOLDERS["2025-lviv"], "IMG_2731.jpeg"),
+  //             blobUrl(BLOB_FOLDERS["2025-lviv"], "IMG_3265.jpeg"),
+  //             blobUrl(BLOB_FOLDERS["2025-lviv"], "IMG_4509.jpeg"),
+  //             blobUrl(BLOB_FOLDERS["2025-lviv"], "IMG_4514.jpeg"),
+  //             blobUrl(BLOB_FOLDERS["2025-lviv"], "IMG_1786.jpeg"),
+  //             // blobUrl(BLOB_FOLDERS["2025-lviv"], "IMG_3660.jpeg"),
+  //           ],
+  //         },
+  //       ],
+  //     },
+  //     {
+  //       name: "Snowboarding",
+  //       coordinates: "",
+  //       places: [
+  //         {
+  //           imageUrls: [
+  //             blobUrl(BLOB_FOLDERS["2025-snowboarding"], "IMG_4582.jpeg"),
+  //             blobUrl(BLOB_FOLDERS["2025-snowboarding"], "IMG_3710.jpeg"),
+  //             blobUrl(BLOB_FOLDERS["2025-snowboarding"], "IMG_3727.HEIC"),
+  //           ],
+  //         },
+  //       ],
+  //     },
+  //   ],
+  // },
   {
     year: "20's",
     city: [
       {
         name: "Archives",
         places: [
-          {
-            info: "Sirka",
-            month: "2024",
-            imageUrls: [
-              blobUrl(BLOB_FOLDERS["2024-sirka"], "IMG_3156.jpeg"),
-              blobUrl(BLOB_FOLDERS["2024-sirka"], "IMG_3163.jpeg"),
-              blobUrl(BLOB_FOLDERS["2024-sirka"], "IMG_3165.HEIC"),
-              blobUrl(BLOB_FOLDERS["2024-sirka"], "IMG_3169.jpeg"),
-            ],
-          },
+          // {
+          //   info: "Sirka",
+          //   month: "2024",
+          //   imageUrls: [
+          //     blobUrl(BLOB_FOLDERS["2024-sirka"], "IMG_3156.jpeg"),
+          //     blobUrl(BLOB_FOLDERS["2024-sirka"], "IMG_3163.jpeg"),
+          //     blobUrl(BLOB_FOLDERS["2024-sirka"], "IMG_3165.HEIC"),
+          //     blobUrl(BLOB_FOLDERS["2024-sirka"], "IMG_3169.jpeg"),
+          //   ],
+          // },
           {
             info: "Football",
             month: "2021",
@@ -321,12 +321,12 @@ export const PHOTOS: IPhotoSeriesYear[] = [
             imageUrls: [
               blobUrl(BLOB_FOLDERS["2019-greece"], "sea/IMG_6399.jpeg"),
               blobUrl(BLOB_FOLDERS["2019-greece"], "sea/IMG_6405.jpeg"),
-              // blobUrl(BLOB_FOLDERS["2019-greece"], "sea/IMG_6400.jpeg"),
               blobUrl(BLOB_FOLDERS["2019-greece"], "sea/IMG_6387.jpeg"),
               blobUrl(BLOB_FOLDERS["2019-greece"], "sea/IMG_6375.jpeg"),
-              // blobUrl(BLOB_FOLDERS["2019-greece"], "sea/IMG_6397.jpeg"),
               blobUrl(BLOB_FOLDERS["2019-greece"], "sea/IMG_6438.jpeg"),
               blobUrl(BLOB_FOLDERS["2019-greece"], "sea/IMG_0015.jpg"),
+              // blobUrl(BLOB_FOLDERS["2019-greece"], "sea/IMG_6400.jpeg"),
+              // blobUrl(BLOB_FOLDERS["2019-greece"], "sea/IMG_6397.jpeg"),
               // blobUrl(BLOB_FOLDERS["2019-greece"], "sea/IMG_6374.jpeg"),
             ],
           },
@@ -358,29 +358,18 @@ export const PHOTOS: IPhotoSeriesYear[] = [
             info: "Karpaty",
             imageUrls: [
               blobUrl(BLOB_FOLDERS["2018-karpaty"], "IMG_0056.jpeg"),
-              blobUrl(BLOB_FOLDERS["2018-karpaty"], "IMG_0081.jpeg"),
-              blobUrl(BLOB_FOLDERS["2018-karpaty"], "IMG_0092.jpeg"),
               blobUrl(BLOB_FOLDERS["2018-karpaty"], "IMG_0132.jpeg"),
-              blobUrl(BLOB_FOLDERS["2018-karpaty"], "IMG_3984.jpeg"),
+              blobUrl(BLOB_FOLDERS["2018-karpaty"], "IMG_0081.jpeg"),
               blobUrl(BLOB_FOLDERS["2018-karpaty"], "IMG_3989.jpeg"),
+              blobUrl(BLOB_FOLDERS["2018-karpaty"], "IMG_3984.jpeg"),
               blobUrl(BLOB_FOLDERS["2018-karpaty"], "IMG_3995.jpeg"),
               blobUrl(BLOB_FOLDERS["2018-karpaty"], "IMG_3999.jpeg"),
               blobUrl(BLOB_FOLDERS["2018-karpaty"], "IMG_5767.jpeg"),
               blobUrl(BLOB_FOLDERS["2018-karpaty"], "IMG_5807.jpeg"),
-              blobUrl(BLOB_FOLDERS["2018-karpaty"], "IMG_5851.jpeg"),
               blobUrl(BLOB_FOLDERS["2018-karpaty"], "IMG_5885.jpeg"),
               blobUrl(BLOB_FOLDERS["2018-karpaty"], "IMG_5899.jpeg"),
-            ],
-          },
-          {
-            month: "2018",
-            info: "Tukey",
-            imageUrls: [
-              blobUrl(BLOB_FOLDERS["2018-tukey"], "IMG_3515.jpeg"),
-              blobUrl(BLOB_FOLDERS["2018-tukey"], "IMG_3589.jpeg"),
-              blobUrl(BLOB_FOLDERS["2018-tukey"], "IMG_0502.jpeg"),
-              // blobUrl(BLOB_FOLDERS["2018-tukey"], "IMG_3564.jpeg"),
-              // blobUrl(BLOB_FOLDERS["2018-tukey"], "IMG_3571.jpeg"),
+              blobUrl(BLOB_FOLDERS["2018-karpaty"], "IMG_5851.jpeg"),
+              // blobUrl(BLOB_FOLDERS["2018-karpaty"], "IMG_0092.jpeg"),
             ],
           },
           {
@@ -393,15 +382,15 @@ export const PHOTOS: IPhotoSeriesYear[] = [
               blobUrl(BLOB_FOLDERS["2018-sofiyivka"], "IMG_3356.jpeg"),
             ],
           },
-          {
-            month: "Ternopil",
-            info: "Grafity",
-            imageUrls: [
-              blobUrl(BLOB_FOLDERS["20's-ternopil"], "grafity/IMG_4847.jpeg"),
-              blobUrl(BLOB_FOLDERS["20's-ternopil"], "grafity/IMG_5464.jpeg"),
-              blobUrl(BLOB_FOLDERS["20's-ternopil"], "grafity/IMG_9254.jpeg"),
-            ],
-          },
+          // {
+          //   month: "Ternopil",
+          //   info: "Grafity",
+          //   imageUrls: [
+          //     blobUrl(BLOB_FOLDERS["20's-ternopil"], "grafity/IMG_4847.jpeg"),
+          //     blobUrl(BLOB_FOLDERS["20's-ternopil"], "grafity/IMG_5464.jpeg"),
+          //     blobUrl(BLOB_FOLDERS["20's-ternopil"], "grafity/IMG_9254.jpeg"),
+          //   ],
+          // },
           {
             month: "Ternopil",
             info: "Random",
@@ -413,14 +402,14 @@ export const PHOTOS: IPhotoSeriesYear[] = [
               // blobUrl(BLOB_FOLDERS["20's-ternopil"], "random/IMG_8188.jpeg"),
             ],
           },
-          {
-            month: "Ternopil",
-            info: "Stadium",
-            imageUrls: [
-              blobUrl(BLOB_FOLDERS["20's-ternopil"], "stadium/IMG_3062.jpeg"),
-              blobUrl(BLOB_FOLDERS["20's-ternopil"], "stadium/IMG_3537.jpeg"),
-            ],
-          },
+          // {
+          //   month: "Ternopil",
+          //   info: "Stadium",
+          //   imageUrls: [
+          //     blobUrl(BLOB_FOLDERS["20's-ternopil"], "stadium/IMG_3062.jpeg"),
+          //     blobUrl(BLOB_FOLDERS["20's-ternopil"], "stadium/IMG_3537.jpeg"),
+          //   ],
+          // },
           {
             month: "Ternopil",
             info: "Sunsets",
@@ -442,6 +431,9 @@ export const PHOTOS: IPhotoSeriesYear[] = [
               blobUrl(BLOB_FOLDERS["2019-faine"], "IMG_0654.jpeg"),
               blobUrl(BLOB_FOLDERS["20's-random"], "IMG_5985.jpeg"),
               blobUrl(BLOB_FOLDERS.krakow_07, "IMG_5294.jpeg"),
+              blobUrl(BLOB_FOLDERS["2018-tukey"], "IMG_3515.jpeg"),
+              blobUrl(BLOB_FOLDERS["2018-tukey"], "IMG_3589.jpeg"),
+              blobUrl(BLOB_FOLDERS["2018-tukey"], "IMG_0502.jpeg"),
             ],
           },
         ],
