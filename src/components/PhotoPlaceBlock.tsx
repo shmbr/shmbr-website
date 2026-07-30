@@ -16,6 +16,7 @@ export interface IPhotoPlaceEntry {
   month?: string;
   info?: string;
   imageUrls: string[];
+  dividerAfter?: string;
 }
 
 export interface IPhotoCity {

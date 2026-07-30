@@ -6,6 +6,7 @@ import {
 import { Box, Typography } from "@mui/material";
 
 import { PhotoPlaceBlock, type IPhotoCity } from "./PhotoPlaceBlock";
+import { PhotoPlaceDivider } from "./PhotoPlaceDivider";
 import { PhotoPlaceSectionHeader } from "./PhotoPlaceSectionHeader";
 
 export interface IPhotoSeriesYear {
@@ -83,6 +84,9 @@ export function PhotoSeriesYearSection(props: IPhotoSeriesYearSectionProps) {
                   coordinates={cityEntry.coordinates}
                   place={place}
                 />
+                {place.dividerAfter ? (
+                  <PhotoPlaceDivider label={place.dividerAfter} />
+                ) : null}
               </Fragment>
             );
           }
@@ -138,6 +142,12 @@ export function PhotoSeriesYearSection(props: IPhotoSeriesYearSectionProps) {
                         )
                       }
                     />
+                    {place.dividerAfter ? (
+                      <PhotoPlaceDivider
+                        label={place.dividerAfter}
+                        nested
+                      />
+                    ) : null}
                   </Fragment>
                 ))}
               </Box>
