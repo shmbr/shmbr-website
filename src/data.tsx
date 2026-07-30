@@ -7,6 +7,7 @@ import { type IPhotoSeriesYear } from "./components/PhotoSeriesYearSection";
 const BLOB_STORAGE_BASE = "https://shmbr-photos.s3.us-east-1.amazonaws.com";
 
 const BLOB_FOLDERS = {
+  morskie_oko_07: "2026-07-morskie-oko",
   krakow_07: "2026-07-krakow",
   warsaw_05_Zamek: "2026-05-warszawa/palace",
   warsaw_05_highline: "2026-05-warszawa/highline",
@@ -35,6 +36,35 @@ export const PHOTOS: IPhotoSeriesYear[] = [
   {
     year: "2026",
     city: [
+      {
+        name: "Morskie Oko",
+        coordinates: "49.19722, 20.07083",
+        places: [
+          {
+            imageUrls: [
+              blobUrl(BLOB_FOLDERS.morskie_oko_07, "DSCF8309.jpeg"),
+              blobUrl(BLOB_FOLDERS.morskie_oko_07, "DSCF8311.jpeg"),
+              blobUrl(BLOB_FOLDERS.morskie_oko_07, "DSCF8313.jpeg"),
+              blobUrl(BLOB_FOLDERS.morskie_oko_07, "DSCF8318.jpeg"),
+              blobUrl(BLOB_FOLDERS.morskie_oko_07, "DSCF8319.jpeg"),
+              blobUrl(BLOB_FOLDERS.morskie_oko_07, "DSCF8335.jpeg"),
+              blobUrl(BLOB_FOLDERS.morskie_oko_07, "DSCF8338.jpeg"),
+              blobUrl(BLOB_FOLDERS.morskie_oko_07, "DSCF8354.jpeg"),
+              blobUrl(BLOB_FOLDERS.morskie_oko_07, "DSCF8376.jpeg"),
+              blobUrl(BLOB_FOLDERS.morskie_oko_07, "DSCF8381.jpeg"),
+              blobUrl(BLOB_FOLDERS.morskie_oko_07, "DSCF8383.jpeg"),
+              blobUrl(BLOB_FOLDERS.morskie_oko_07, "DSCF8401.jpeg"),
+              blobUrl(BLOB_FOLDERS.morskie_oko_07, "DSCF8416.jpeg"),
+              blobUrl(BLOB_FOLDERS.morskie_oko_07, "DSCF8419.jpeg"),
+              blobUrl(BLOB_FOLDERS.morskie_oko_07, "DSCF8425.jpeg"),
+              blobUrl(BLOB_FOLDERS.morskie_oko_07, "DSCF8438.jpeg"),
+              blobUrl(BLOB_FOLDERS.morskie_oko_07, "DSCF8439.jpeg"),
+              blobUrl(BLOB_FOLDERS.morskie_oko_07, "DSCF8450.jpeg"),
+              // blobUrl(BLOB_FOLDERS.morskie_oko_07, "DSCF8449.jpeg"),
+            ],
+          },
+        ],
+      },
       {
         name: "Krakow",
         coordinates: "50.06465, 19.93658",
