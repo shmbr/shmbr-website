@@ -4,6 +4,7 @@ import type {
   KeyboardEvent as ReactKeyboardEvent,
   MouseEvent as ReactMouseEvent,
 } from "react";
+import { filterPlaceImages, useBestFilter } from "../bestFilterContext";
 import { PhotoLightbox, type IPhotoLightboxRequest } from "./PhotoLightbox";
 import {
   PhotoPlaceSectionHeader,
@@ -12,10 +13,15 @@ import {
 import { PhotoPlaceThumbnails } from "./PhotoPlaceThumbnails";
 import { readViewportRect } from "./photoLightboxGeometry";
 
+export interface IPhotoImage {
+  url: string;
+  best: boolean;
+}
+
 export interface IPhotoPlaceEntry {
   month?: string;
   info?: string;
-  imageUrls: string[];
+  imageUrls: IPhotoImage[];
   dividerAfter?: string;
 }
 
@@ -46,6 +52,11 @@ export function PhotoPlaceBlock(props: IPhotoPlaceBlockProps) {
     onPhotosCollapsedChange,
   } = props;
   const { month, info, imageUrls } = place;
+  const { showBestOnly } = useBestFilter();
+  const visibleImages = useMemo(
+    () => filterPlaceImages(imageUrls, showBestOnly),
+    [imageUrls, showBestOnly],
+  );
   const displaySubtitle =
     headerVariant === "placeEntry" ? undefined : coordinates;
   const photosRegionId = useId();
@@ -80,7 +91,7 @@ export function PhotoPlaceBlock(props: IPhotoPlaceBlockProps) {
   ) => {
     const target = event.currentTarget;
     setLightboxRequest({
-      imageUrls,
+      imageUrls: visibleImages.map((image) => image.url),
       index: thumbIndex,
       openFirst: readViewportRect(target.getBoundingClientRect()),
       placeName: cityName,
@@ -96,6 +107,10 @@ export function PhotoPlaceBlock(props: IPhotoPlaceBlockProps) {
   const handleLightboxNavigateIndex = useCallback((nextIndex: number) => {
     setLightboxRequest((prev) => (prev ? { ...prev, index: nextIndex } : prev));
   }, []);
+
+  if (visibleImages.length === 0) {
+    return null;
+  }
 
   return (
     <Box>
@@ -118,7 +133,7 @@ export function PhotoPlaceBlock(props: IPhotoPlaceBlockProps) {
           onToggleCollapsed={togglePhotosCollapsed}
         />
         <PhotoPlaceThumbnails
-          imageUrls={imageUrls}
+          images={visibleImages}
           name={cityName}
           photosCollapsed={photosCollapsed}
           photosRegionId={photosRegionId}

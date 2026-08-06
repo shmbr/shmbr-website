@@ -1,3 +1,4 @@
+import { BestFilterProvider } from "./bestFilterContext";
 import { assetUrls } from "./assetUrls";
 import AppLayout from "./components/AppLayout";
 import { HeroHeading } from "./components/HeroHeading";
@@ -20,11 +21,13 @@ const headerLinks: ISiteHeaderLink[] = [
 
 function App() {
   return (
-    <AppLayout>
-      <SiteHeader links={headerLinks} />
-      <HeroHeading prefix="by" title="Yura Shambora" />
-      <Photos />
-    </AppLayout>
+    <BestFilterProvider>
+      <AppLayout>
+        <SiteHeader links={headerLinks} />
+        <HeroHeading prefix="by" title="Yura Shambora" />
+        <Photos />
+      </AppLayout>
+    </BestFilterProvider>
   );
 }
 

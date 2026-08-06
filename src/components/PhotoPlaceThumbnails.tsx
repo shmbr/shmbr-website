@@ -2,6 +2,18 @@ import { useRef, useState } from "react";
 import { Box, Collapse, Typography } from "@mui/material";
 import type { MouseEvent as ReactMouseEvent, SyntheticEvent } from "react";
 
+import type { IPhotoImage } from "./PhotoPlaceBlock";
+
+const THUMB_SIZE = 390;
+
+export const photoThumbnailsGridSx = {
+  alignItems: "center",
+  display: "flex",
+  flexWrap: "wrap",
+  gap: 4,
+  justifyContent: "space-evenly",
+} as const;
+
 function isSquareImage(naturalWidth: number, naturalHeight: number): boolean {
   if (naturalWidth === 0 || naturalHeight === 0) {
     return false;
@@ -17,7 +29,7 @@ interface IPhotoPlaceThumbnailProps {
   src: string;
 }
 
-function PhotoPlaceThumbnail(props: IPhotoPlaceThumbnailProps) {
+export function PhotoPlaceThumbnail(props: IPhotoPlaceThumbnailProps) {
   const { alt, id, onClick, src } = props;
   const [isSquare, setIsSquare] = useState(false);
 
@@ -26,29 +38,19 @@ function PhotoPlaceThumbnail(props: IPhotoPlaceThumbnailProps) {
     setIsSquare(isSquareImage(naturalWidth, naturalHeight));
   };
 
-  const imageSx = {
-    cursor: "zoom-in",
-    display: "block",
-    width: "100%",
-    height: "auto",
-    maxHeight: isSquare ? "100%" : 390,
-    maxWidth: isSquare ? "100%" : 390,
-    objectFit: "contain" as const,
-    margin: "auto",
-  };
-
   return (
     <Box
-      sx={
-        isSquare
-          ? {
-              boxSizing: "border-box",
-              maxHeight: 390,
-              maxWidth: 390,
-              p: 3,
-            }
-          : undefined
-      }
+      sx={{
+        alignItems: "center",
+        boxSizing: "border-box",
+        display: "flex",
+        flex: "0 0 auto",
+        justifyContent: "center",
+        maxWidth: "100%",
+        minWidth: 0,
+        p: isSquare ? 3 : 0,
+        width: THUMB_SIZE,
+      }}
     >
       <Box
         alt={alt}
@@ -58,14 +60,22 @@ function PhotoPlaceThumbnail(props: IPhotoPlaceThumbnailProps) {
         onClick={onClick}
         onLoad={handleLoad}
         src={src}
-        sx={imageSx}
+        sx={{
+          cursor: "zoom-in",
+          display: "block",
+          height: "auto",
+          maxHeight: THUMB_SIZE,
+          maxWidth: "100%",
+          objectFit: "contain",
+          width: "auto",
+        }}
       />
     </Box>
   );
 }
 
 export interface IPhotoPlaceThumbnailsProps {
-  imageUrls: string[];
+  images: IPhotoImage[];
   name: string;
   photosCollapsed: boolean;
   onThumbClick: (
@@ -78,7 +88,7 @@ export interface IPhotoPlaceThumbnailsProps {
 
 export function PhotoPlaceThumbnails(props: IPhotoPlaceThumbnailsProps) {
   const {
-    imageUrls,
+    images,
     name,
     photosCollapsed,
     onThumbClick,
@@ -91,34 +101,24 @@ export function PhotoPlaceThumbnails(props: IPhotoPlaceThumbnailsProps) {
     hasBeenOpenedRef.current = true;
   }
 
-  if (imageUrls.length === 0) {
+  if (images.length === 0) {
     return null;
   }
 
-  const photoCountLabel = `${imageUrls.length} photo${
-    imageUrls.length === 1 ? "" : "s"
+  const photoCountLabel = `${images.length} photo${
+    images.length === 1 ? "" : "s"
   }`;
 
   return (
     <Collapse in={!photosCollapsed} timeout={750}>
       {hasBeenOpenedRef.current ? (
-        <Box
-          id={photosRegionId}
-          sx={{
-            display: "flex",
-            flexWrap: "wrap",
-            gap: 4,
-            mt: 1,
-            justifyContent: "space-evenly",
-            alignItems: "center",
-          }}
-        >
-          {imageUrls.map((src, index) => (
+        <Box id={photosRegionId} sx={{ ...photoThumbnailsGridSx, mt: 1 }}>
+          {images.map((image, index) => (
             <PhotoPlaceThumbnail
-              key={`${index}-${src}`}
+              key={`${index}-${image.url}`}
               alt={`${name} — ${index + 1}`}
               id={`lightbox-thumb-${thumbIdPrefix}-${index}`}
-              src={src}
+              src={image.url}
               onClick={(event) => onThumbClick(event, index)}
             />
           ))}

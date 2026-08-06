@@ -8,6 +8,7 @@ import { Box, Typography } from "@mui/material";
 import { PhotoPlaceBlock, type IPhotoCity } from "./PhotoPlaceBlock";
 import { PhotoPlaceDivider } from "./PhotoPlaceDivider";
 import { PhotoPlaceSectionHeader } from "./PhotoPlaceSectionHeader";
+import { filterPlaceImages, useBestFilter } from "../bestFilterContext";
 
 export interface IPhotoSeriesYear {
   year: string;
@@ -18,6 +19,7 @@ export interface IPhotoSeriesYearSectionProps extends IPhotoSeriesYear {}
 
 export function PhotoSeriesYearSection(props: IPhotoSeriesYearSectionProps) {
   const { year, city } = props;
+  const { showBestOnly } = useBestFilter();
   const [multiPlaceCollapsed, setMultiPlaceCollapsed] = useState<
     Record<string, boolean[]>
   >({});
@@ -73,10 +75,19 @@ export function PhotoSeriesYearSection(props: IPhotoSeriesYearSectionProps) {
       <Typography variant="h2">-{year}</Typography>
       <Box>
         {city.map((cityEntry) => {
-          const multiPlace = cityEntry.places.length > 1;
+          const visiblePlaces = cityEntry.places.filter(
+            (place) =>
+              filterPlaceImages(place.imageUrls, showBestOnly).length > 0,
+          );
+
+          if (visiblePlaces.length === 0) {
+            return null;
+          }
+
+          const multiPlace = visiblePlaces.length > 1;
 
           if (!multiPlace) {
-            const place = cityEntry.places[0];
+            const place = visiblePlaces[0];
             return (
               <Fragment key={cityEntry.name}>
                 <PhotoPlaceBlock
@@ -91,7 +102,7 @@ export function PhotoSeriesYearSection(props: IPhotoSeriesYearSectionProps) {
             );
           }
 
-          const placeCount = cityEntry.places.length;
+          const placeCount = visiblePlaces.length;
           const placeCollapsedStates =
             multiPlaceCollapsed[cityEntry.name] ??
             Array.from({ length: placeCount }, () => true);
@@ -122,7 +133,7 @@ export function PhotoSeriesYearSection(props: IPhotoSeriesYearSectionProps) {
                     handleMultiPlaceCityHeaderToggle(cityEntry.name, placeCount)
                   }
                 />
-                {cityEntry.places.map((place, placeIndex) => (
+                {visiblePlaces.map((place, placeIndex) => (
                   <Fragment key={`${cityEntry.name}-${placeIndex}`}>
                     <PhotoPlaceBlock
                       cityName={cityEntry.name}
