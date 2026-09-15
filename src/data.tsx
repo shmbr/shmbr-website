@@ -8,6 +8,7 @@ import { type IPhotoImage } from "./components/PhotoPlaceBlock";
 const BLOB_STORAGE_BASE = "https://shmbr-photos.s3.us-east-1.amazonaws.com";
 
 const BLOB_FOLDERS = {
+  warsaw_10: "2026-10-warszawa",
   morskie_oko_07: "2026-07-morskie-oko",
   krakow_07: "2026-07-krakow",
   warsaw_05_Zamek: "2026-05-warszawa/palace",
@@ -42,6 +43,30 @@ export const PHOTOS: IPhotoSeriesYear[] = [
     year: "2026",
     city: [
       {
+        name: "Warsaw",
+        coordinates: "52.24779, 21.01413",
+        places: [
+          {
+            imageUrls: [
+              photo(blobUrl(BLOB_FOLDERS.warsaw_10, "DSCF8566.jpeg")),
+              photo(blobUrl(BLOB_FOLDERS.warsaw_10, "DSCF8581.jpeg"), true),
+              photo(blobUrl(BLOB_FOLDERS.warsaw_10, "DSCF8583.jpeg")),
+              photo(blobUrl(BLOB_FOLDERS.warsaw_10, "DSCF8593.jpeg")),
+              photo(blobUrl(BLOB_FOLDERS.warsaw_10, "DSCF8595.jpeg")),
+              photo(blobUrl(BLOB_FOLDERS.warsaw_10, "DSCF8603.jpeg"), true),
+              photo(blobUrl(BLOB_FOLDERS.warsaw_10, "DSCF8615.jpeg")),
+              photo(blobUrl(BLOB_FOLDERS.warsaw_10, "DSCF8628.jpeg")),
+              photo(blobUrl(BLOB_FOLDERS.warsaw_10, "DSCF8643.jpeg")),
+              photo(blobUrl(BLOB_FOLDERS.warsaw_10, "DSCF8652.jpeg"), true),
+              photo(blobUrl(BLOB_FOLDERS.warsaw_10, "DSCF8660.jpeg")),
+              photo(blobUrl(BLOB_FOLDERS.warsaw_10, "DSCF8663.jpeg"), true),
+              photo(blobUrl(BLOB_FOLDERS.warsaw_10, "DSCF8679.jpeg")),
+              photo(blobUrl(BLOB_FOLDERS.warsaw_10, "DSCF8682.jpeg")),
+            ],
+          },
+        ],
+      },
+      {
         name: "Morskie Oko",
         coordinates: "49.19722, 20.07083",
         places: [
@@ -49,13 +74,13 @@ export const PHOTOS: IPhotoSeriesYear[] = [
             imageUrls: [
               photo(blobUrl(BLOB_FOLDERS.morskie_oko_07, "DSCF8309.jpeg")),
               photo(blobUrl(BLOB_FOLDERS.morskie_oko_07, "DSCF8311.jpeg"), true),
-              photo(blobUrl(BLOB_FOLDERS.morskie_oko_07, "DSCF8313.jpeg"), true),
+              photo(blobUrl(BLOB_FOLDERS.morskie_oko_07, "DSCF8313.jpeg")),
               photo(blobUrl(BLOB_FOLDERS.morskie_oko_07, "DSCF8318.jpeg"), true),
-              photo(blobUrl(BLOB_FOLDERS.morskie_oko_07, "DSCF8319.jpeg"), true),
+              photo(blobUrl(BLOB_FOLDERS.morskie_oko_07, "DSCF8319.jpeg")),
               photo(blobUrl(BLOB_FOLDERS.morskie_oko_07, "DSCF8335.jpeg")),
               photo(blobUrl(BLOB_FOLDERS.morskie_oko_07, "DSCF8338.jpeg")),
               photo(blobUrl(BLOB_FOLDERS.morskie_oko_07, "DSCF8354.jpeg")),
-              photo(blobUrl(BLOB_FOLDERS.morskie_oko_07, "DSCF8376.jpeg"), true),
+              photo(blobUrl(BLOB_FOLDERS.morskie_oko_07, "DSCF8376.jpeg")),
               photo(blobUrl(BLOB_FOLDERS.morskie_oko_07, "DSCF8381.jpeg")),
               photo(blobUrl(BLOB_FOLDERS.morskie_oko_07, "DSCF8383.jpeg"), true),
               photo(blobUrl(BLOB_FOLDERS.morskie_oko_07, "DSCF8401.jpeg"), true),
