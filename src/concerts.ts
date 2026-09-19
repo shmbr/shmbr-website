@@ -1,0 +1,31 @@
+const CONCERT_ARTISTS = [
+  "Giant Rooks",
+  "AnnenMayKantereit",
+  "Arctic Monkeys",
+  "Radiohead",
+  "Coldplay",
+  "Taylor Swift",
+  "Milky Chance",
+  "Harry Styles",
+  "Lana Del Rey",
+  "30 Seconds to Mars",
+  "Rammstein",
+  "Catfish and the Bottlemen",
+  "Fontaines DC",
+  "Linking Park",
+  "Oasis",
+  "Placebo",
+  "RHCP",
+  "Gracie Abrams",
+  "The Neighbourhood",
+  "IDLES",
+  "Blink-182",
+  "Alt-J",
+  "Bring Me the Horizon",
+  "Green Day",
+  "The Strokes",
+];
+
+export const CONCERTS = [...CONCERT_ARTISTS].sort((a, b) =>
+  a.localeCompare(b, "en", { numeric: true, sensitivity: "base" }),
+);

@@ -32,6 +32,10 @@ export const theme = createTheme({
       primary: "#1a1a1a",
       secondary: "#555555",
     },
+    primary: {
+      main: "#FFD500",
+      contrastText: "#1a1a1a",
+    },
   },
   typography: {
     fontFamily: fontCourier,
