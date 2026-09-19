@@ -6,13 +6,12 @@ export interface IAnalyticsProviderProps {
 }
 
 const POSTHOG_KEY = import.meta.env.VITE_POSTHOG_PROJECT_TOKEN;
-const POSTHOG_HOST =
-  import.meta.env.VITE_POSTHOG_HOST ?? "https://eu.i.posthog.com";
+const POSTHOG_HOST = import.meta.env.VITE_POSTHOG_HOST;
 
 export function AnalyticsProvider(props: IAnalyticsProviderProps) {
   const { children } = props;
 
-  if (!POSTHOG_KEY) {
+  if (!POSTHOG_KEY || !POSTHOG_HOST) {
     return children;
   }
 
