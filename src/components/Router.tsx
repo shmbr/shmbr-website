@@ -2,6 +2,7 @@ import { Albums } from "./Albums";
 import { Concerts } from "./Concerts";
 import { Favourite } from "./Favourite";
 import { Home } from "./Home";
+import { Index } from "./Index";
 import { NotFound } from "./NotFound";
 import { Tracks } from "./Tracks";
 
@@ -15,6 +16,8 @@ export function Router() {
   switch (pathname) {
     case "/":
       return <Home />;
+    case "/index":
+      return <Index />;
     case "/concerts":
       return <Concerts />;
     case "/favourite":
