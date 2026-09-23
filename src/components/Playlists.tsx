@@ -1,8 +1,9 @@
-import { Box, Link, Typography } from "@mui/material";
+import { Box } from "@mui/material";
 
 import { PLAYLISTS, toPlaylistEmbedUrl } from "../playlists";
 import AppLayout from "./AppLayout";
 import { PageEndNav } from "./PageEndNav";
+import { PageHeading } from "./PageHeading";
 
 interface IPlaylistFrameProps {
   playlistUrl: string;
@@ -33,29 +34,12 @@ function PlaylistFrame(props: IPlaylistFrameProps) {
 export function Playlists() {
   return (
     <AppLayout>
-      <Box
-        display="flex"
-        alignItems="baseline"
-        gap={3}
-        sx={{ mt: { xs: 2, md: 4 } }}
-      >
-        <Typography
-          component={Link}
-          href="/favourite"
-          underline="none"
-          variant="h2"
-          color="inherit"
-          sx={{ "&:hover": { textDecoration: "underline" } }}
-        >
-          favourite
-        </Typography>
-        <Typography variant="h1">playlists</Typography>
-      </Box>
+      <PageHeading href="/favourite" prefix="favourite" title="playlists" />
 
       <Box
         sx={{
           display: "grid",
-          gridTemplateColumns: "repeat(2, 1fr)",
+          gridTemplateColumns: { xs: "1fr", md: "repeat(2, 1fr)" },
           flexDirection: "column",
           gap: { xs: 3, md: 4 },
           mt: { xs: 4, md: 6 },

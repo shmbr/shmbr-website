@@ -1,10 +1,11 @@
-import { Box, Link, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { useState } from "react";
 
 import { ALBUMS, type IAlbum } from "../albums";
 import brokenImgSrc from "../assets/broken-img.svg";
 import AppLayout from "./AppLayout";
 import { PageEndNav } from "./PageEndNav";
+import { PageHeading } from "./PageHeading";
 
 interface IAlbumCoverProps {
   album: IAlbum;
@@ -67,24 +68,7 @@ function AlbumCover(props: IAlbumCoverProps) {
 export function Albums() {
   return (
     <AppLayout>
-      <Box
-        display="flex"
-        alignItems="baseline"
-        gap={3}
-        sx={{ mt: { xs: 2, md: 4 } }}
-      >
-        <Typography
-          component={Link}
-          href="/favourite"
-          underline="none"
-          variant="h2"
-          color="inherit"
-          sx={{ "&:hover": { textDecoration: "underline" } }}
-        >
-          favourite
-        </Typography>
-        <Typography variant="h1">albums</Typography>
-      </Box>
+      <PageHeading href="/favourite" prefix="favourite" title="albums" />
 
       <Box
         sx={{

@@ -1,8 +1,9 @@
-import { Box, Link, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 
 import { SONGS, type ISong } from "../songs";
 import AppLayout from "./AppLayout";
 import { PageEndNav } from "./PageEndNav";
+import { PageHeading } from "./PageHeading";
 
 interface ITrackRowProps {
   song: ISong;
@@ -36,24 +37,7 @@ function TrackRow(props: ITrackRowProps) {
 export function Tracks() {
   return (
     <AppLayout>
-      <Box
-        display="flex"
-        alignItems="baseline"
-        gap={3}
-        sx={{ mt: { xs: 2, md: 4 } }}
-      >
-        <Typography
-          component={Link}
-          href="/favourite"
-          underline="none"
-          variant="h2"
-          color="inherit"
-          sx={{ "&:hover": { textDecoration: "underline" } }}
-        >
-          favourite
-        </Typography>
-        <Typography variant="h1">tracks</Typography>
-      </Box>
+      <PageHeading href="/favourite" prefix="favourite" title="tracks" />
 
       <Box
         component="ul"
