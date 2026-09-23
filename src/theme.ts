@@ -1,6 +1,6 @@
 import { createTheme } from "@mui/material/styles";
 
-const fontCourier = '"Courier Prime", "Courier New", Courier, monospace';
+const fontCourier = '"Courier Prime", Courier, "Courier New", monospace';
 const fontAmatic = '"Amatic SC", cursive';
 
 const xsDown = "@media (max-width:600px)";
