@@ -15,7 +15,7 @@ interface IFavouriteNavCardProps {
 const FAVOURITE_NAV: IFavouriteNavItem[] = [
   { id: "albums", title: "albums", href: "/favourite/albums" },
   { id: "artists", title: "artists", href: "/concerts" },
-  { id: "tracks", title: "tracks" },
+  { id: "tracks", title: "tracks", href: "/favourite/tracks" },
   { id: "todo", title: "" },
 ];
 
