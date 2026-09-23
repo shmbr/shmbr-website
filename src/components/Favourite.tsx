@@ -16,7 +16,7 @@ const FAVOURITE_NAV: IFavouriteNavItem[] = [
   { id: "albums", title: "albums", href: "/favourite/albums" },
   { id: "artists", title: "artists", href: "/concerts" },
   { id: "tracks", title: "tracks", href: "/favourite/tracks" },
-  { id: "todo", title: "" },
+  { id: "playlists", title: "playlists", href: "/favourite/playlists" },
 ];
 
 function FavouriteNavCard(props: IFavouriteNavCardProps) {

@@ -4,6 +4,7 @@ import { Favourite } from "./Favourite";
 import { Home } from "./Home";
 import { Index } from "./Index";
 import { NotFound } from "./NotFound";
+import { Playlists } from "./Playlists";
 import { Tracks } from "./Tracks";
 
 function getPathname() {
@@ -26,6 +27,8 @@ export function Router() {
       return <Albums />;
     case "/favourite/tracks":
       return <Tracks />;
+    case "/favourite/playlists":
+      return <Playlists />;
     default:
       return <NotFound />;
   }
