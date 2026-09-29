@@ -19,6 +19,7 @@ Personal site for Yura Shambora
 | `/favourite/albums`    | Albums                |
 | `/favourite/artists`   | Artists               |
 | `/favourite/playlists` | Apple Music playlists |
+| `/ui`                  | UI sandbox            |
 
 `/?best=true` shows only photos marked as best.
 
@@ -91,11 +92,11 @@ city_mm: "YYYY-MM-city",
 
 ## Adding music
 
-| Content         | File                                                                              |
-| --------------- | --------------------------------------------------------------------------------- |
-| Albums          | `src/albums.ts`                                                                   |
-| Artists         | `src/artists.ts`                                                                  |
-| Playlists       | `src/playlists.ts` (Apple Music playlist URLs)                                    |
+| Content   | File                                           |
+| --------- | ---------------------------------------------- |
+| Albums    | `src/albums.ts`                                |
+| Artists   | `src/artists.ts`                               |
+| Playlists | `src/playlists.ts` (Apple Music playlist URLs) |
 
 Album artwork URLs come from the iTunes Search API. Replace `100x100bb` with `600x600bb` in `artworkUrl100` for a larger cover.
 

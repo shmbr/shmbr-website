@@ -14,6 +14,7 @@ const INDEX_ROUTES: IIndexRoute[] = [
   { href: "/favourite/albums" },
   { href: "/favourite/artists" },
   { href: "/favourite/playlists" },
+  { href: "/ui" },
 ];
 
 function IndexRouteLink(props: IIndexRouteLinkProps) {

@@ -5,6 +5,7 @@ import { Home } from "./Home";
 import { Index } from "./Index";
 import { NotFound } from "./NotFound";
 import { Playlists } from "./Playlists";
+import { UiLibrary } from "./UiLibrary";
 
 function getPathname() {
   return window.location.pathname.replace(/\/+$/, "") || "/";
@@ -26,6 +27,8 @@ export function Router() {
       return <Artists />;
     case "/favourite/playlists":
       return <Playlists />;
+    case "/ui":
+      return <UiLibrary />;
     default:
       return <NotFound />;
   }
