@@ -1,5 +1,6 @@
 import { BestFilterProvider } from "../bestFilterContext";
 import { assetUrls } from "../assetUrls";
+import { CONTACT_EMAIL } from "../contact";
 import AppLayout from "./AppLayout";
 import { HeroHeading } from "./HeroHeading";
 import Photos from "./Photos";
@@ -7,9 +8,9 @@ import { SiteHeader, type ISiteHeaderLink } from "./SiteHeader";
 
 const headerLinks: ISiteHeaderLink[] = [
   {
-    href: "mailto:ura.shambora@gmail.com",
+    href: `mailto:${CONTACT_EMAIL}`,
     iconSrc: assetUrls.mailIcon,
-    label: "ura.shambora@gmail.com",
+    label: CONTACT_EMAIL,
   },
   {
     href: "https://www.instagram.com/_shmbr/",

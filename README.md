@@ -15,10 +15,9 @@ Personal site for Yura Shambora
 | ---------------------- | --------------------- |
 | `/`                    | Photos                |
 | `/index`               | List of routes        |
-| `/concerts`            | Concert artists       |
 | `/favourite`           | Music section         |
 | `/favourite/albums`    | Albums                |
-| `/favourite/tracks`    | Tracks                |
+| `/favourite/artists`   | Artists               |
 | `/favourite/playlists` | Apple Music playlists |
 
 `/?best=true` shows only photos marked as best.
@@ -95,8 +94,7 @@ city_mm: "YYYY-MM-city",
 | Content         | File                                                                              |
 | --------------- | --------------------------------------------------------------------------------- |
 | Albums          | `src/albums.ts`                                                                   |
-| Concert artists | `src/concerts.ts`                                                                 |
-| Tracks          | `src/assets/fav-songs.txt` (tab-separated; title in column 1, artist in column 3) |
+| Artists         | `src/artists.ts`                                                                  |
 | Playlists       | `src/playlists.ts` (Apple Music playlist URLs)                                    |
 
 Album artwork URLs come from the iTunes Search API. Replace `100x100bb` with `600x600bb` in `artworkUrl100` for a larger cover.

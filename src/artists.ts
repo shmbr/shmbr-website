@@ -26,6 +26,6 @@ const CONCERT_ARTISTS = [
   "The Strokes",
 ];
 
-export const CONCERTS = [...CONCERT_ARTISTS].sort((a, b) =>
+export const ARTISTS = [...CONCERT_ARTISTS].sort((a, b) =>
   a.localeCompare(b, "en", { numeric: true, sensitivity: "base" }),
 );

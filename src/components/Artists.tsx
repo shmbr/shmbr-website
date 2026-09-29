@@ -1,10 +1,9 @@
 import { Box, Link, Typography } from "@mui/material";
 
-import { CONCERTS } from "../concerts";
+import { ARTISTS } from "../artists";
+import { CONTACT_EMAIL } from "../contact";
 
-const CONTACT_EMAIL = "ura.shambora@gmail.com";
-
-export function Concerts() {
+export function Artists() {
   return (
     <Box
       display="grid"
@@ -53,7 +52,7 @@ export function Concerts() {
           gridRow: { xs: 2, md: 1 },
         }}
       >
-        {CONCERTS.map((artist) => (
+        {ARTISTS.map((artist) => (
           <li key={artist}>{artist}</li>
         ))}
       </Typography>
