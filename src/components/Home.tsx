@@ -11,7 +11,7 @@ const PHOTOS_HEADER_LINKS = DEFAULT_HEADER_LINKS.filter(
 export function Home() {
   return (
     <BestFilterProvider>
-      <AppLayout headerLinks={PHOTOS_HEADER_LINKS}>
+      <AppLayout headerLinks={PHOTOS_HEADER_LINKS} showFooter={false}>
         <HeroHeading prefix="by" title="Yura Shambora" />
         <Photos />
       </AppLayout>
