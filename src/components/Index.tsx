@@ -10,6 +10,7 @@ interface IIndexRouteLinkProps {
 
 const INDEX_ROUTES: IIndexRoute[] = [
   { href: "/" },
+  { href: "/photos" },
   { href: "/favourite" },
   { href: "/favourite/albums" },
   { href: "/favourite/artists" },

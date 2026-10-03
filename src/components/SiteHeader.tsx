@@ -1,4 +1,5 @@
 import { Box } from "@mui/material";
+
 import { IconLabelLink } from "./IconLabelLink";
 import { SiteLogo } from "./SiteLogo";
 
@@ -18,6 +19,7 @@ export function SiteHeader(props: ISiteHeaderProps) {
 
   return (
     <Box
+      component="header"
       display="flex"
       justifyContent={{ xs: "center", sm: "space-between" }}
       alignItems="center"

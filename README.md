@@ -13,7 +13,8 @@ Personal site for Yura Shambora
 
 | Path                   | Page                  |
 | ---------------------- | --------------------- |
-| `/`                    | Photos                |
+| `/`                    | Landing               |
+| `/photos`              | Photos                |
 | `/index`               | List of routes        |
 | `/favourite`           | Music section         |
 | `/favourite/albums`    | Albums                |
@@ -21,7 +22,7 @@ Personal site for Yura Shambora
 | `/favourite/playlists` | Apple Music playlists |
 | `/ui`                  | UI sandbox            |
 
-`/?best=true` shows only photos marked as best.
+`/photos?best=true` shows only photos marked as best.
 
 ## Setup
 

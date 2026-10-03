@@ -1,5 +1,6 @@
 import { Box, Link, Typography } from "@mui/material";
 
+import AppLayout from "./AppLayout";
 import { PageEndNav } from "./PageEndNav";
 
 interface IFavouriteNavItem {
@@ -64,17 +65,10 @@ function FavouriteNavCard(props: IFavouriteNavCardProps) {
 
 export function Favourite() {
   return (
-    <Box
-      component="main"
-      sx={{
-        display: "flex",
-        flexDirection: "column",
-        minHeight: "100vh",
-        px: { xs: 2, md: 6 },
-        py: { xs: 3, md: 4 },
-      }}
-    >
-      <Typography variant="h1">favourite</Typography>
+    <AppLayout showFooter={false} showHeader={false}>
+      <Typography sx={{ mt: { xs: 2, md: 4 } }} variant="h1">
+        favourite
+      </Typography>
 
       <Box
         sx={{
@@ -91,6 +85,6 @@ export function Favourite() {
       </Box>
 
       <PageEndNav />
-    </Box>
+    </AppLayout>
   );
 }

@@ -1,30 +1,17 @@
 import { BestFilterProvider } from "../bestFilterContext";
-import { assetUrls } from "../assetUrls";
-import { CONTACT_EMAIL } from "../contact";
-import AppLayout from "./AppLayout";
+import { GITHUB_URL } from "../contact";
+import AppLayout, { DEFAULT_HEADER_LINKS } from "./AppLayout";
 import { HeroHeading } from "./HeroHeading";
 import Photos from "./Photos";
-import { SiteHeader, type ISiteHeaderLink } from "./SiteHeader";
 
-const headerLinks: ISiteHeaderLink[] = [
-  {
-    href: `mailto:${CONTACT_EMAIL}`,
-    iconSrc: assetUrls.mailIcon,
-    label: CONTACT_EMAIL,
-  },
-  {
-    href: "https://www.instagram.com/_shmbr/",
-    iconSrc: assetUrls.instagramIcon,
-    label: "_shmbr",
-    external: true,
-  },
-];
+const PHOTOS_HEADER_LINKS = DEFAULT_HEADER_LINKS.filter(
+  (link) => link.href !== GITHUB_URL,
+);
 
 export function Home() {
   return (
     <BestFilterProvider>
-      <AppLayout>
-        <SiteHeader links={headerLinks} />
+      <AppLayout headerLinks={PHOTOS_HEADER_LINKS}>
         <HeroHeading prefix="by" title="Yura Shambora" />
         <Photos />
       </AppLayout>

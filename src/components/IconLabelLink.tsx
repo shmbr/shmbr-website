@@ -19,7 +19,7 @@ export function IconLabelLink(props: IIconLabelLinkProps) {
       sx={{
         display: "flex",
         alignItems: "center",
-        gap: 1,
+        gap: 0.75,
         "&:hover": { textDecoration: "underline" },
       }}
     >
@@ -28,7 +28,7 @@ export function IconLabelLink(props: IIconLabelLinkProps) {
         src={iconSrc}
         alt=""
         aria-hidden
-        sx={{ width: 12, height: 12, display: "block" }}
+        sx={{ width: 14, height: 14, display: "block" }}
       />
       <Typography variant="body1">{label}</Typography>
     </Link>

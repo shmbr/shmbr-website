@@ -2,12 +2,14 @@ import { Box, Link } from "@mui/material";
 import { assetUrls } from "../assetUrls";
 
 export interface ISiteLogoProps {
-  src?: string;
   alt?: string;
+  plain?: boolean;
+  src?: string;
 }
 
 export function SiteLogo(props: ISiteLogoProps) {
-  const { src = assetUrls.logo, alt = "Logo" } = props;
+  const { alt = "shmbr", plain = false, src } = props;
+  const logoSrc = src ?? (plain ? assetUrls.logoMark : assetUrls.logo);
 
   return (
     <Link
@@ -18,9 +20,13 @@ export function SiteLogo(props: ISiteLogoProps) {
     >
       <Box
         component="img"
-        src={src}
+        src={logoSrc}
         alt={alt}
-        sx={{ height: { xs: 28, md: 36 }, width: "auto", display: "block" }}
+        sx={{
+          display: "block",
+          height: plain ? { xs: 28, md: 32 } : { xs: 28, md: 36 },
+          width: "auto",
+        }}
       />
     </Link>
   );

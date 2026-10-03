@@ -67,7 +67,7 @@ function AlbumCover(props: IAlbumCoverProps) {
 
 export function Albums() {
   return (
-    <AppLayout>
+    <AppLayout showFooter={false} showHeader={false}>
       <PageHeading href="/favourite" prefix="favourite" title="albums" />
 
       <Box

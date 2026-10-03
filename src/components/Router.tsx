@@ -3,6 +3,7 @@ import { Artists } from "./Artists";
 import { Favourite } from "./Favourite";
 import { Home } from "./Home";
 import { Index } from "./Index";
+import { Landing } from "./Landing";
 import { NotFound } from "./NotFound";
 import { Playlists } from "./Playlists";
 import { UiLibrary } from "./UiLibrary";
@@ -16,6 +17,8 @@ export function Router() {
 
   switch (pathname) {
     case "/":
+      return <Landing />;
+    case "/photos":
       return <Home />;
     case "/index":
       return <Index />;
