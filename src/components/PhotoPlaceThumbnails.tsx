@@ -70,9 +70,7 @@ export function PhotoPlaceThumbnail(props: IPhotoPlaceThumbnailProps) {
           lineHeight: 0,
           maxWidth: "100%",
           position: fileName ? "relative" : undefined,
-          ...(fileName
-            ? { "&:hover .photo-file-name": { opacity: 1 } }
-            : null),
+          ...(fileName ? { "&:hover .photo-file-name": { opacity: 1 } } : null),
         }}
       >
         <Box
@@ -99,9 +97,8 @@ export function PhotoPlaceThumbnail(props: IPhotoPlaceThumbnailProps) {
             component="span"
             variant="caption"
             sx={{
-              bgcolor: "background.default",
               bottom: 0,
-              color: "text.secondary",
+              color: "white",
               left: 0,
               opacity: 0,
               pointerEvents: "none",

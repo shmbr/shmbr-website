@@ -69,6 +69,7 @@ export function BestFilterToggle() {
                 display: "flex",
                 justifyContent: "center",
                 width: 12,
+                mt: "-4px",
               }}
             >
               {isActive ? <Check size={12} strokeWidth={2} /> : null}

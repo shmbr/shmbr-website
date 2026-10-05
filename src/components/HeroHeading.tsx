@@ -1,6 +1,7 @@
 import { Box, Divider, Typography } from "@mui/material";
 
 import { BestFilterToggle } from "./BestFilterToggle";
+import { FullscreenToggle } from "./FullscreenToggle";
 
 export interface IHeroHeadingProps {
   prefix: string;
@@ -54,7 +55,18 @@ export function HeroHeading(props: IHeroHeadingProps) {
             </>
           )}
         </Typography>
-        <BestFilterToggle />
+        <Box
+          sx={{
+            alignItems: "flex-end",
+            display: "flex",
+            flexDirection: "column",
+            gap: 1,
+          }}
+        >
+          <FullscreenToggle />
+          <Divider flexItem />
+          <BestFilterToggle />
+        </Box>
       </Box>
     </>
   );
