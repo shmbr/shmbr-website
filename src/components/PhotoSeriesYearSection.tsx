@@ -74,7 +74,8 @@ export function PhotoSeriesYearSection(props: IPhotoSeriesYearSectionProps) {
     <Box sx={{ mb: 8 }}>
       <Typography variant="h2">-{year}</Typography>
       <Box>
-        {city.map((cityEntry) => {
+        {city.map((cityEntry, cityIndex) => {
+          const cityKey = `${cityIndex}-${cityEntry.name}`;
           const visiblePlaces = cityEntry.places.filter(
             (place) =>
               filterPlaceImages(place.imageUrls, showBestOnly).length > 0,
@@ -89,7 +90,7 @@ export function PhotoSeriesYearSection(props: IPhotoSeriesYearSectionProps) {
           if (!multiPlace) {
             const place = visiblePlaces[0];
             return (
-              <Fragment key={cityEntry.name}>
+              <Fragment key={cityKey}>
                 <PhotoPlaceBlock
                   cityName={cityEntry.name}
                   coordinates={cityEntry.coordinates}
@@ -104,12 +105,12 @@ export function PhotoSeriesYearSection(props: IPhotoSeriesYearSectionProps) {
 
           const placeCount = visiblePlaces.length;
           const placeCollapsedStates =
-            multiPlaceCollapsed[cityEntry.name] ??
+            multiPlaceCollapsed[cityKey] ??
             Array.from({ length: placeCount }, () => true);
           const allPlacesCollapsed = placeCollapsedStates.every(Boolean);
 
           return (
-            <Fragment key={cityEntry.name}>
+            <Fragment key={cityKey}>
               <Box
                 sx={{
                   ml: { xs: 0, sm: 3, md: 3.75 },
@@ -125,12 +126,12 @@ export function PhotoSeriesYearSection(props: IPhotoSeriesYearSectionProps) {
                   onTitleKeyDown={(event) =>
                     handleMultiPlaceCityHeaderKeyDown(
                       event,
-                      cityEntry.name,
+                      cityKey,
                       placeCount,
                     )
                   }
                   onToggleCollapsed={() =>
-                    handleMultiPlaceCityHeaderToggle(cityEntry.name, placeCount)
+                    handleMultiPlaceCityHeaderToggle(cityKey, placeCount)
                   }
                 />
                 {visiblePlaces.map((place, placeIndex) => (
@@ -141,12 +142,12 @@ export function PhotoSeriesYearSection(props: IPhotoSeriesYearSectionProps) {
                       headerVariant="placeEntry"
                       place={place}
                       photosCollapsed={getMultiPlaceCollapsed(
-                        cityEntry.name,
+                        cityKey,
                         placeIndex,
                       )}
                       onPhotosCollapsedChange={(collapsed) =>
                         setMultiPlacePlaceCollapsed(
-                          cityEntry.name,
+                          cityKey,
                           placeIndex,
                           placeCount,
                           collapsed,
