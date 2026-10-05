@@ -22,6 +22,17 @@ function isSquareImage(naturalWidth: number, naturalHeight: number): boolean {
   return ratio >= 0.97 && ratio <= 1.03;
 }
 
+function fileNameFromUrl(url: string): string {
+  const path = url.split("?")[0] ?? url;
+  const segment = path.split("/").pop() ?? path;
+
+  try {
+    return decodeURIComponent(segment);
+  } catch {
+    return segment;
+  }
+}
+
 interface IPhotoPlaceThumbnailProps {
   alt: string;
   id: string;
@@ -32,6 +43,7 @@ interface IPhotoPlaceThumbnailProps {
 export function PhotoPlaceThumbnail(props: IPhotoPlaceThumbnailProps) {
   const { alt, id, onClick, src } = props;
   const [isSquare, setIsSquare] = useState(false);
+  const fileName = import.meta.env.DEV ? fileNameFromUrl(src) : null;
 
   const handleLoad = (event: SyntheticEvent<HTMLImageElement>) => {
     const { naturalWidth, naturalHeight } = event.currentTarget;
@@ -53,23 +65,58 @@ export function PhotoPlaceThumbnail(props: IPhotoPlaceThumbnailProps) {
       }}
     >
       <Box
-        alt={alt}
-        component="img"
-        id={id}
-        loading="lazy"
-        onClick={onClick}
-        onLoad={handleLoad}
-        src={src}
         sx={{
-          cursor: "zoom-in",
-          display: "block",
-          height: "auto",
-          maxHeight: THUMB_SIZE,
+          display: "inline-block",
+          lineHeight: 0,
           maxWidth: "100%",
-          objectFit: "contain",
-          width: "auto",
+          position: fileName ? "relative" : undefined,
+          ...(fileName
+            ? { "&:hover .photo-file-name": { opacity: 1 } }
+            : null),
         }}
-      />
+      >
+        <Box
+          alt={alt}
+          component="img"
+          id={id}
+          loading="lazy"
+          onClick={onClick}
+          onLoad={handleLoad}
+          src={src}
+          sx={{
+            cursor: "zoom-in",
+            display: "block",
+            height: "auto",
+            maxHeight: THUMB_SIZE,
+            maxWidth: "100%",
+            objectFit: "contain",
+            width: "auto",
+          }}
+        />
+        {fileName ? (
+          <Typography
+            className="photo-file-name"
+            component="span"
+            variant="caption"
+            sx={{
+              bgcolor: "background.default",
+              bottom: 0,
+              color: "text.secondary",
+              left: 0,
+              opacity: 0,
+              pointerEvents: "none",
+              position: "absolute",
+              px: 0.5,
+              py: 0.25,
+              right: 0,
+              textAlign: "center",
+              transition: "opacity 120ms ease",
+            }}
+          >
+            {fileName}
+          </Typography>
+        ) : null}
+      </Box>
     </Box>
   );
 }
