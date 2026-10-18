@@ -8,6 +8,7 @@ export interface IPhotoPlaceSectionHeaderProps {
   title: string;
   month?: string;
   info?: string;
+  photoCount?: number;
   subtitle?: string;
   photosCollapsed?: boolean;
   photosRegionId?: string;
@@ -21,6 +22,7 @@ export function PhotoPlaceSectionHeader(props: IPhotoPlaceSectionHeaderProps) {
     title,
     month,
     info,
+    photoCount,
     subtitle,
     photosCollapsed,
     photosRegionId,
@@ -105,6 +107,20 @@ export function PhotoPlaceSectionHeader(props: IPhotoPlaceSectionHeaderProps) {
             tabIndex={0}
           >
             {title}
+            {photoCount != null ? (
+              <Box
+                component="span"
+                sx={{
+                  color: "#bbb",
+                  fontSize: 10,
+                  fontWeight: 400,
+                  mr: 4,
+                }}
+              >
+                {" *"}
+                {photoCount}
+              </Box>
+            ) : null}
           </Box>
         </Typography>
         <Divider

@@ -104,6 +104,11 @@ export function PhotoSeriesYearSection(props: IPhotoSeriesYearSectionProps) {
           }
 
           const placeCount = visiblePlaces.length;
+          const photoCount = visiblePlaces.reduce(
+            (total, place) =>
+              total + filterPlaceImages(place.imageUrls, showBestOnly).length,
+            0,
+          );
           const placeCollapsedStates =
             multiPlaceCollapsed[cityKey] ??
             Array.from({ length: placeCount }, () => true);
@@ -121,6 +126,7 @@ export function PhotoSeriesYearSection(props: IPhotoSeriesYearSectionProps) {
                 <PhotoPlaceSectionHeader
                   variant="city"
                   title={cityEntry.name}
+                  photoCount={photoCount}
                   subtitle={cityEntry.coordinates}
                   photosCollapsed={allPlacesCollapsed}
                   onTitleKeyDown={(event) =>

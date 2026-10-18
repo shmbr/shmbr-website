@@ -126,6 +126,9 @@ export function PhotoPlaceBlock(props: IPhotoPlaceBlockProps) {
           title={cityName}
           month={month}
           info={info}
+          photoCount={
+            headerVariant === "city" ? visibleImages.length : undefined
+          }
           subtitle={displaySubtitle}
           photosCollapsed={photosCollapsed}
           photosRegionId={photosRegionId}

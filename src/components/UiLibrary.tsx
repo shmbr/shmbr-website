@@ -377,6 +377,7 @@ function HeaderPlayground() {
           onTitleKeyDown={(event) => toggleOnKey(event, toggleCity)}
           onToggleCollapsed={toggleCity}
           photosCollapsed={cityCollapsed}
+          photoCount={24}
           photosRegionId="ui-city-photos"
           subtitle="52.52000, 13.40500"
           title="berlin"
