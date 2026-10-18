@@ -8,6 +8,7 @@ import { type IPhotoImage } from "./components/PhotoPlaceBlock";
 const BLOB_STORAGE_BASE = "https://shmbr-photos.s3.us-east-1.amazonaws.com";
 
 const BLOB_FOLDERS = {
+  warsaw_10_17: "2026-10-17-warszawa",
   warsaw_10: "2026-10-warszawa",
   warsaw_09: "2026-09-warszawa",
   morskie_oko_07: "2026-07-morskie-oko",
@@ -49,7 +50,51 @@ export const PHOTOS: IPhotoSeriesYear[] = [
         places: [
           {
             month: "OCT",
-            info: "autumn",
+            info: "autumn | part-2",
+            imageUrls: [
+              photo(blobUrl(BLOB_FOLDERS.warsaw_10_17, "DSCF9554.jpeg")),
+              photo(blobUrl(BLOB_FOLDERS.warsaw_10_17, "DSCF9546.jpeg")),
+              photo(blobUrl(BLOB_FOLDERS.warsaw_10_17, "DSCF9553.jpeg")),
+              photo(blobUrl(BLOB_FOLDERS.warsaw_10_17, "DSCF9560.jpeg")),
+              photo(blobUrl(BLOB_FOLDERS.warsaw_10_17, "DSCF9574.jpeg")),
+              photo(blobUrl(BLOB_FOLDERS.warsaw_10_17, "DSCF9575.jpeg")),
+              photo(blobUrl(BLOB_FOLDERS.warsaw_10_17, "DSCF9586.jpeg")),
+              photo(blobUrl(BLOB_FOLDERS.warsaw_10_17, "DSCF9604.jpeg")),
+              photo(blobUrl(BLOB_FOLDERS.warsaw_10_17, "DSCF9588.jpeg")),
+              photo(blobUrl(BLOB_FOLDERS.warsaw_10_17, "DSCF9606.jpeg")),
+              photo(blobUrl(BLOB_FOLDERS.warsaw_10_17, "DSCF9612.jpeg")),
+              photo(blobUrl(BLOB_FOLDERS.warsaw_10_17, "DSCF9620.jpeg")),
+              photo(blobUrl(BLOB_FOLDERS.warsaw_10_17, "DSCF9659.jpeg")),
+              photo(blobUrl(BLOB_FOLDERS.warsaw_10_17, "DSCF9671.jpeg")),
+              photo(blobUrl(BLOB_FOLDERS.warsaw_10_17, "DSCF9674.jpeg")),
+              photo(blobUrl(BLOB_FOLDERS.warsaw_10_17, "DSCF9682.jpeg")),
+              photo(blobUrl(BLOB_FOLDERS.warsaw_10_17, "DSCF9687.jpeg")),
+              photo(blobUrl(BLOB_FOLDERS.warsaw_10_17, "DSCF9684.jpeg")),
+              photo(blobUrl(BLOB_FOLDERS.warsaw_10_17, "DSCF9688.jpeg")),
+              photo(blobUrl(BLOB_FOLDERS.warsaw_10_17, "DSCF9720.jpeg")),
+              photo(blobUrl(BLOB_FOLDERS.warsaw_10_17, "DSCF9695.jpeg")),
+              photo(blobUrl(BLOB_FOLDERS.warsaw_10_17, "DSCF9722.jpeg")),
+              photo(blobUrl(BLOB_FOLDERS.warsaw_10_17, "DSCF9731.jpeg")),
+              photo(blobUrl(BLOB_FOLDERS.warsaw_10_17, "DSCF9753.jpeg")),
+              photo(blobUrl(BLOB_FOLDERS.warsaw_10_17, "DSCF9772.jpeg")),
+              photo(blobUrl(BLOB_FOLDERS.warsaw_10_17, "DSCF9779.jpeg")),
+              photo(blobUrl(BLOB_FOLDERS.warsaw_10_17, "DSCF9788.jpeg")),
+              photo(blobUrl(BLOB_FOLDERS.warsaw_10_17, "DSCF9814.jpeg")),
+              photo(blobUrl(BLOB_FOLDERS.warsaw_10_17, "DSCF9891.jpeg")),
+              photo(blobUrl(BLOB_FOLDERS.warsaw_10_17, "DSCF9818.jpeg")),
+              photo(blobUrl(BLOB_FOLDERS.warsaw_10_17, "DSCF9908.jpeg")),
+              photo(blobUrl(BLOB_FOLDERS.warsaw_10_17, "DSCF9948.jpeg")),
+              photo(blobUrl(BLOB_FOLDERS.warsaw_10_17, "DSCF9916.jpeg")),
+              photo(blobUrl(BLOB_FOLDERS.warsaw_10_17, "DSCF9962.jpeg")),
+              photo(blobUrl(BLOB_FOLDERS.warsaw_10_17, "DSCF9971.jpeg")),
+              photo(blobUrl(BLOB_FOLDERS.warsaw_10_17, "DTCF0001.jpeg")),
+              photo(blobUrl(BLOB_FOLDERS.warsaw_10_17, "DTCF0003.jpeg")),
+              photo(blobUrl(BLOB_FOLDERS.warsaw_10_17, "DTCF0041.jpeg")),
+            ],
+          },
+          {
+            month: "OCT",
+            info: "autumn | part-1",
             imageUrls: [
               photo(blobUrl(BLOB_FOLDERS.warsaw_10, "DSCF9067.jpeg")),
               photo(blobUrl(BLOB_FOLDERS.warsaw_10, "DSCF9057.jpeg")),
@@ -419,7 +464,7 @@ export const PHOTOS: IPhotoSeriesYear[] = [
             ],
           },
           {
-            info: "Greece | Sea",
+            info: "Greece | sea",
             month: "2019",
             imageUrls: [
               photo(blobUrl(BLOB_FOLDERS["2019-greece"], "sea/IMG_6399.jpeg"), true),
@@ -434,7 +479,7 @@ export const PHOTOS: IPhotoSeriesYear[] = [
             ],
           },
           {
-            info: "Greece | Sunsets",
+            info: "Greece | sunsets",
             month: "2019",
             imageUrls: [
               photo(blobUrl(BLOB_FOLDERS["2019-greece"], "sunsets/IMG_6352.jpeg"), true),
@@ -443,7 +488,7 @@ export const PHOTOS: IPhotoSeriesYear[] = [
             ],
           },
           {
-            info: "Greece | Town",
+            info: "Greece | town",
             month: "2019",
             imageUrls: [
               photo(blobUrl(BLOB_FOLDERS["2019-greece"], "town/IMG_6490.jpeg"), true),
@@ -496,7 +541,7 @@ export const PHOTOS: IPhotoSeriesYear[] = [
           // },
           {
             month: "Ternopil",
-            info: "Random",
+            info: "random",
             imageUrls: [
               photo(blobUrl(BLOB_FOLDERS["20's-ternopil"], "random/IMG_3799.jpeg")),
               photo(blobUrl(BLOB_FOLDERS["20's-ternopil"], "random/IMG_3330.jpeg"), true),
@@ -515,7 +560,7 @@ export const PHOTOS: IPhotoSeriesYear[] = [
           // },
           {
             month: "Ternopil",
-            info: "Sunsets",
+            info: "sunsets",
             imageUrls: [
               photo(blobUrl(BLOB_FOLDERS["20's-ternopil"], "sunsets/IMG_0642.jpeg"), true),
               photo(blobUrl(BLOB_FOLDERS["20's-ternopil"], "sunsets/IMG_5131.jpeg"), true),

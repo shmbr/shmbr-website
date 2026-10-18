@@ -97,7 +97,7 @@ export function Landing() {
             </BulletLink>
           </li>
           <li>
-            <BulletLink href="/photos" underline="hover">
+            <BulletLink href="/photos" underline="always">
               photos 📷
             </BulletLink>
           </li>
